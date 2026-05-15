@@ -1060,6 +1060,29 @@
     .reveal-scale{opacity:0;transform:scale(.94)}
 
     /* ── RESPONSIVE ── */
+
+    /* 1200px — tighten fixed-width investment column */
+    @media(max-width:1200px){
+      .investment{grid-template-columns:1fr 300px}
+    }
+
+    /* 1080px — navbar links ficam apertados */
+    @media(max-width:1080px){
+      .fixed-nav nav a{padding:7px 10px;font-size:12px}
+      .fixed-nav .fn-cta{padding:8px 14px;font-size:12px}
+    }
+
+    /* 1024px — one step before full collapse */
+    @media(max-width:1024px){
+      .hero{padding:52px 36px 60px}
+      .nav{padding:28px 36px 0}
+      .hero h1{font-size:clamp(42px,6vw,70px)}
+      .hero-shell{background-position:70% center}
+      /* timeline column widths relaxados */
+      .timeline-row{grid-template-columns:200px 1fr 160px}
+    }
+
+    /* 1020px — colapso para 1 coluna */
     @media(max-width:1020px){
       .hero,
       .section-head,
@@ -1069,42 +1092,135 @@
       .offers,
       .method-accordion,
       .deliverables,
-      .timeline-row,
       .investment{
         grid-template-columns:1fr;
       }
       .offer-card.featured{transform:none}
-      .hero-shell{margin-top:16px}
+      .hero-shell{margin-top:16px;background-position:72% center}
       .hero,.nav{padding-left:28px;padding-right:28px}
-      .hero-visual{
-        min-height:auto;
-        display:grid;
-        gap:16px;
-      }
+      .hero-visual{min-height:auto;display:grid;gap:16px}
       .floating-window,.mini-badge{
-        position:relative;
-        inset:auto;
-        left:auto;
-        right:auto;
-        bottom:auto;
-        width:100%;
-        transform:none;
+        position:relative;inset:auto;
+        left:auto;right:auto;bottom:auto;
+        width:100%;transform:none;
       }
       .fixed-nav nav{display:none}
+      /* timeline: cada row vira um card unificado */
+      .timeline-row{
+        display:flex;flex-direction:column;gap:0;
+        background:#fff;border:1px solid #E2EBFA;
+        border-radius:22px;box-shadow:var(--shadow-soft);
+        overflow:hidden;
+      }
+      .timeline-cell{
+        border-radius:0;border:none;box-shadow:none;
+        border-bottom:1px solid #E2EBFA;
+      }
+      .timeline-cell:last-child{
+        border-bottom:none;
+        background:linear-gradient(135deg,var(--blue),var(--cyan));
+        color:#fff;font-weight:950;text-align:center;
+        padding:14px 20px;
+      }
     }
+
+    /* 768px — tablet portrait */
+    @media(max-width:768px){
+      .section{padding:72px 0}
+      .hero-shell{background-position:78% center;min-height:auto}
+      .hero h1{font-size:clamp(36px,8.5vw,54px)}
+      .hero .lead{font-size:18px}
+      .hero{padding:36px 24px 48px;gap:28px}
+      .nav{padding:22px 24px 0}
+      .section-head{margin-bottom:24px}
+      .section-head p{font-size:17px}
+      .deliverable-card h3{font-size:26px}
+      .investment-card strong{font-size:48px}
+      .closing p{font-size:17px}
+      /* site-cards: 2 colunas no tablet */
+      .site-cards{grid-template-columns:1fr 1fr}
+    }
+
+    /* 640px — telefone grande */
     @media(max-width:640px){
       .fixed-nav{padding:0 12px;height:56px}
       .fixed-nav .fn-cta{padding:8px 12px;font-size:12px}
+      .fixed-nav .fn-brand span{display:none}
       .hero-shell,.container{width:min(100% - 24px,1160px)}
-      .nav{flex-direction:column;align-items:flex-start}
-      .hero h1{font-size:44px}
-      .hero .lead{font-size:18px}
-      .section{padding:70px 0}
+      .nav{flex-direction:column;align-items:flex-start;gap:10px}
+      .section{padding:64px 0}
+      .hero h1{font-size:clamp(32px,8.5vw,44px)}
+      .hero .lead{font-size:17px}
       .site-cards{grid-template-columns:1fr}
       .card,.offer-card,.step,.deliverable-card,.scope,.investment-card{padding:22px}
       .float-cta span{display:none}
       .float-cta{padding:14px}
-      .fixed-nav .fn-brand span{display:none}
+      .investment-card strong{font-size:44px}
+      .deliverable-card h3{font-size:22px}
+      .faq-q{font-size:15px}
+      h2{font-size:clamp(28px,7.5vw,50px)}
+    }
+
+    /* 480px — telefone médio */
+    @media(max-width:480px){
+      .hero-shell{background-position:82% center}
+      .section{padding:56px 0}
+      .hero{padding:28px 18px 40px;gap:20px}
+      .nav{padding:18px 18px 0}
+      .hero h1{font-size:clamp(30px,8.5vw,40px)}
+      .hero .lead{font-size:16px;margin-top:14px}
+      .hero-actions{gap:8px}
+      .btn{padding:12px 18px;font-size:14px}
+      .eyebrow{font-size:10px;letter-spacing:.12em}
+      h2{font-size:clamp(26px,8vw,42px)}
+      .section-head p{font-size:16px}
+      .card,.offer-card,.deliverable-card{padding:20px}
+      .acc-header h3{font-size:17px}
+      .faq-q{font-size:14px;padding:16px 18px}
+      .investment-card strong{font-size:40px}
+      .closing{padding:72px 0 88px}
+      .closing p{font-size:16px}
+    }
+
+    /* 375px — iPhone SE / padrão */
+    @media(max-width:375px){
+      .hero h1{font-size:32px}
+      .hero .lead{font-size:15px}
+      .hero-actions{flex-direction:column;align-items:stretch;gap:8px}
+      .btn{justify-content:center}
+      .section{padding:48px 0}
+      h2{font-size:clamp(24px,8vw,36px)}
+      .eyebrow{gap:8px}
+      .eyebrow::before{width:20px}
+      .acc-header h3{font-size:16px}
+      .faq-q{font-size:13px;padding:14px 16px}
+      .float-cta{bottom:16px;right:16px}
+      .closing{padding:60px 0 72px}
+      .closing p{font-size:15px}
+      .signature{flex-direction:column;text-align:center;font-size:13px;gap:8px}
+      .investment-card strong{font-size:36px}
+    }
+
+    /* 320px — telas muito pequenas */
+    @media(max-width:320px){
+      :root{--container:calc(100% - 28px)}
+      .hero h1{font-size:28px;line-height:1.05}
+      .hero{padding:18px 14px 30px}
+      .nav{padding:14px 14px 0}
+      .fixed-nav{height:52px}
+      .section{padding:40px 0}
+      h2{font-size:clamp(22px,8.5vw,32px)}
+      h3{font-size:20px}
+      .card,.offer-card,.deliverable-card,.scope,.investment-card{padding:16px}
+      .acc-header{padding:14px 16px}
+      .acc-header h3{font-size:14px}
+      .faq-q{font-size:12px;padding:12px 14px}
+      .float-cta{bottom:12px;right:12px}
+      .closing{padding:48px 0 56px}
+      .timeline-cell{padding:12px 16px}
+      .hero-actions .btn{font-size:13px;padding:10px 14px}
+      .eyebrow{font-size:9px;letter-spacing:.08em}
+      .eyebrow::before{width:16px}
     }
 
     @media print{
@@ -1129,14 +1245,14 @@
       <a href="#diagnostico">Diagnóstico</a>
       <a href="#planos">Planos</a>
       <a href="#processo">Processo</a>
-      <a href="#cases">Estrutura</a>
+      <a href="#cases">Processo</a>
       <a href="#investimento">Investimento</a>
     </nav>
-    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+tenho+interesse+na+proposta+da+Alavancador!" class="fn-cta">Falar agora</a>
+    <a href="https://wa.me/5527999491797?text=Ol%C3%A1%2C+tenho+interesse+na+proposta+da+Alavancador!" class="fn-cta">Falar agora</a>
   </div>
 
   <!-- FLOAT CTA -->
-  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+quero+meu+site!" class="float-cta" id="floatCta" target="_blank" rel="noopener">
+  <a href="https://wa.me/5527999491797?text=Ol%C3%A1%2C+quero+meu+site!" class="float-cta" id="floatCta" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.856L.057 23.882l6.198-1.625A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.017-1.376l-.36-.214-3.683.966.981-3.595-.234-.369A9.794 9.794 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182c5.434 0 9.818 4.384 9.818 9.818 0 5.434-4.384 9.818-9.818 9.818z"/></svg>
     <span>Quero meu site →</span>
   </a>
@@ -1440,10 +1556,10 @@
         <div class="section-head">
           <div>
             <div class="eyebrow reveal">Entregáveis-chave</div>
-            <h2 class="reveal">O que precisa ficar evidente para o cliente.</h2>
+            <h2 class="reveal">O que você recebe em cada projeto.</h2>
           </div>
           <p class="reveal">
-            Quanto mais tangível o escopo, menor a chance de o cliente enxergar o site como commodity. Abaixo está a base ideal para apresentar landing pages e sites institucionais com mais valor percebido.
+            Cada entregável foi pensado para construir credibilidade, clareza e conversão — não apenas para entregar páginas. Aqui está o que está incluído em cada solução.
           </p>
         </div>
 
@@ -1490,7 +1606,7 @@
             <h2 class="reveal">Uma sequência clara para evitar desalinhamento.</h2>
           </div>
           <p class="reveal">
-            A proposta deve mostrar o fluxo de trabalho para o cliente entender que existe método, etapas e responsabilidades compartilhadas.
+            Transparência total do início ao fim. Você sabe exatamente o que acontece em cada fase, o que é esperado de cada lado e quando o seu site estará no ar.
           </p>
         </div>
 
@@ -1736,7 +1852,7 @@
         <div class="eyebrow reveal" style="justify-content:center;color:#B7F0FF;">Direcionamento final</div>
         <h2 class="reveal">O produto principal não é "Web Designer". É Site Estratégico para Conversão e Autoridade.</h2>
         <p class="reveal">
-          Esse reposicionamento aumenta o valor percebido, melhora o argumento comercial e reduz a comparação direta por preço. A proposta passa a vender uma solução de crescimento comercial, não apenas criação visual.
+          Quando você investe em um site estratégico, não está comprando design. Está construindo o canal que vai trabalhar por você 24 horas, todos os dias — apresentando sua empresa, gerando confiança e convertendo oportunidades enquanto você foca no que faz de melhor.
         </p>
 
         <div class="signature reveal">
