@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proposta Comercial | Landing Pages e Sites Institucionais — Alavancador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website" />
@@ -43,9 +46,10 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+    html,body{max-width:100%;overflow-x:hidden}
     body{
       margin:0;
-      font-family:Inter, Arial, Helvetica, sans-serif;
+      font-family:'Urbanist', Inter, Arial, Helvetica, sans-serif;
       color:var(--text);
       background:#F5F8FE;
       line-height:1.55;
@@ -419,6 +423,7 @@
       line-height:1.45;
     }
 
+    section[id]{scroll-margin-top:84px}
     .section{padding:94px 0}
     .light{background:#F5F8FE}
     .white{background:#fff}
@@ -1076,6 +1081,8 @@
       .fixed-nav nav{display:none}
     }
     @media(max-width:640px){
+      .fixed-nav{padding:0 12px;height:56px}
+      .fixed-nav .fn-cta{padding:8px 12px;font-size:12px}
       .hero-shell,.container{width:min(100% - 24px,1160px)}
       .nav{flex-direction:column;align-items:flex-start}
       .hero h1{font-size:44px}
@@ -1899,36 +1906,65 @@
       });
     });
 
+
+    function enableInteractive(el, onActivate){
+      if(!el) return;
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          onActivate();
+        }
+      });
+      el.addEventListener('click', onActivate);
+    }
+
     // ── ACCORDION (método) ──
-    document.querySelectorAll('[data-acc]').forEach(function(item){
+    document.querySelectorAll('[data-acc]').forEach(function(item, idx){
       var header = item.querySelector('.acc-header');
       var body   = item.querySelector('.acc-body');
-      header.addEventListener('click', function(){
+      var panelId = 'acc-panel-' + idx;
+      body.id = panelId;
+      header.setAttribute('aria-controls', panelId);
+      header.setAttribute('aria-expanded', 'false');
+
+      enableInteractive(header, function(){
         var isOpen = item.classList.contains('open');
-        // close all
         document.querySelectorAll('[data-acc].open').forEach(function(o){
           o.classList.remove('open');
+          var openHeader = o.querySelector('.acc-header');
+          openHeader.setAttribute('aria-expanded', 'false');
           o.querySelector('.acc-body').style.maxHeight = '0';
         });
         if(!isOpen){
           item.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
           body.style.maxHeight = body.scrollHeight + 'px';
         }
       });
     });
 
     // ── FAQ ACCORDION ──
-    document.querySelectorAll('[data-faq]').forEach(function(item){
+    document.querySelectorAll('[data-faq]').forEach(function(item, idx){
       var q = item.querySelector('.faq-q');
       var a = item.querySelector('.faq-a');
-      q.addEventListener('click', function(){
+      var panelId = 'faq-panel-' + idx;
+      a.id = panelId;
+      q.setAttribute('aria-controls', panelId);
+      q.setAttribute('aria-expanded', 'false');
+
+      enableInteractive(q, function(){
         var isOpen = item.classList.contains('open');
         document.querySelectorAll('[data-faq].open').forEach(function(o){
           o.classList.remove('open');
+          var openQ = o.querySelector('.faq-q');
+          openQ.setAttribute('aria-expanded', 'false');
           o.querySelector('.faq-a').style.maxHeight = '0';
         });
         if(!isOpen){
           item.classList.add('open');
+          q.setAttribute('aria-expanded', 'true');
           a.style.maxHeight = a.scrollHeight + 'px';
         }
       });
