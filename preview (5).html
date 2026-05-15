@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial | Landing Pages e Sites Institucionais — Alavancador</title>
+  <style>
+    :root{
+      --blue:#005CFF;
+      --blue-2:#006DFF;
+      --blue-3:#003FB8;
+      --cyan:#00C8FF;
+      --navy:#020A1F;
+      --deep:#001744;
+      --ice:#F4F8FF;
+      --ice-2:#EAF2FF;
+      --white:#FFFFFF;
+      --text:#07122F;
+      --muted:#53627E;
+      --line:#DCE7F8;
+      --green:#00A88E;
+      --purple:#7B3FF2;
+      --warning:#FF6B35;
+      --shadow-blue:0 34px 90px rgba(0,92,255,.25);
+      --shadow-soft:0 22px 60px rgba(10,32,80,.11);
+      --radius-xl:34px;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --container:min(1160px, calc(100% - 40px));
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:#F5F8FE;
+      line-height:1.55;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(48px, 7vw, 88px);
+      line-height:.91;
+      letter-spacing:-.075em;
+      font-weight:950;
+    }
+    h2{
+      font-size:clamp(34px, 4.6vw, 62px);
+      line-height:.96;
+      letter-spacing:-.06em;
+      font-weight:950;
+    }
+    h3{
+      font-size:24px;
+      line-height:1.1;
+      letter-spacing:-.035em;
+      font-weight:850;
+    }
+    p{
+      color:var(--muted);
+      font-size:17px;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .page{overflow:hidden;background:#fff}
+    .container{width:var(--container);margin:0 auto}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:950;
+      margin-bottom:18px;
+    }
+    .eyebrow::before{
+      content:"";
+      width:30px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--cyan),var(--blue));
+    }
+
+    .hero-shell{
+      width:var(--container);
+      margin:34px auto 0;
+      min-height:690px;
+      position:relative;
+      border-radius:36px;
+      overflow:hidden;
+      background:
+        radial-gradient(860px 440px at 78% 8%, rgba(0,200,255,.36), transparent 58%),
+        radial-gradient(720px 480px at 0% 100%, rgba(255,255,255,.14), transparent 60%),
+        linear-gradient(135deg, #005CFF 0%, #004BD2 54%, #002878 100%);
+      box-shadow:var(--shadow-blue);
+      color:#fff;
+    }
+    .hero-shell::after{
+      content:"";
+      position:absolute;
+      right:-180px;
+      bottom:-240px;
+      width:650px;
+      height:650px;
+      border:74px solid rgba(255,255,255,.13);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:2;
+      padding:34px 46px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:24px;
+      font-weight:950;
+      letter-spacing:-.04em;
+    }
+    .brand-mark{
+      width:46px;height:46px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.26);
+      box-shadow:0 18px 40px rgba(0,0,0,.14);
+      font-size:15px;
+    }
+    .nav-tag{
+      padding:11px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.24);
+      color:#ECF5FF;
+      font-weight:850;
+      font-size:13px;
+      backdrop-filter:blur(14px);
+    }
+
+    .hero{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:42px;
+      align-items:center;
+      padding:64px 46px 64px;
+    }
+    .hero .eyebrow{color:#B7F0FF}
+    .hero .eyebrow::before{background:#B7F0FF}
+    .hero h1{max-width:720px;color:#fff}
+    .hero .lead{
+      margin-top:24px;
+      color:#E6F2FF;
+      font-size:22px;
+      max-width:660px;
+      line-height:1.5;
+    }
+    .hero-actions{
+      margin-top:34px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 22px;
+      border-radius:999px;
+      font-weight:900;
+      transition:.22s ease;
+      font-size:15px;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-white{
+      background:#fff;
+      color:var(--blue);
+      box-shadow:0 16px 42px rgba(255,255,255,.18);
+    }
+    .btn-ghost{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(255,255,255,.10);
+      backdrop-filter:blur(14px);
+    }
+
+    .hero-visual{position:relative;min-height:510px}
+    .floating-window{
+      position:absolute;
+      inset:16px 0 auto auto;
+      width:min(100%, 520px);
+      min-height:370px;
+      border-radius:30px;
+      background:#fff;
+      box-shadow:0 30px 90px rgba(0,20,80,.34);
+      overflow:hidden;
+      transform:rotate(1.5deg);
+      border:1px solid rgba(255,255,255,.65);
+    }
+    .browser-top{
+      height:52px;
+      background:#F4F8FF;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 18px;
+      border-bottom:1px solid #E5EEFC;
+    }
+    .dots{display:flex;gap:8px}
+    .dots i{
+      width:10px;height:10px;border-radius:50%;
+      background:#BFD1EF;
+      display:block;
+    }
+    .url{
+      width:55%;
+      height:22px;
+      border-radius:999px;
+      background:#EAF1FE;
+    }
+    .site-shot{
+      padding:22px;
+      background:#fff;
+      display:grid;
+      gap:14px;
+    }
+    .site-hero{
+      border-radius:24px;
+      min-height:150px;
+      background:
+        radial-gradient(220px 140px at 90% 0%, rgba(0,200,255,.32), transparent 62%),
+        linear-gradient(135deg, #07122F 0%, #005CFF 100%);
+      color:#fff;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .site-hero small{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:10px;
+      color:#9FEAFF;
+      font-weight:950;
+      margin-bottom:8px;
+    }
+    .site-hero strong{
+      font-size:27px;
+      line-height:1;
+      letter-spacing:-.05em;
+      max-width:330px;
+    }
+    .site-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .site-card{
+      min-height:96px;
+      border-radius:18px;
+      background:#F4F8FF;
+      border:1px solid #E1EAF9;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .site-card b{
+      color:#103B9B;
+      font-size:12px;
+      line-height:1.2;
+    }
+    .site-card span{
+      color:#6B7894;
+      font-size:11px;
+      line-height:1.35;
+    }
+    .mini-badge{
+      position:absolute;
+      left:-4px;
+      bottom:48px;
+      width:250px;
+      padding:18px;
+      border-radius:24px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      backdrop-filter:blur(18px);
+      box-shadow:0 24px 70px rgba(0,0,0,.20);
+      color:#fff;
+      z-index:4;
+    }
+    .mini-badge strong{
+      display:block;
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-.07em;
+    }
+    .mini-badge span{
+      display:block;
+      margin-top:8px;
+      font-size:13px;
+      color:#E6F2FF;
+      line-height:1.45;
+    }
+
+    .section{padding:94px 0}
+    .light{background:#F5F8FE}
+    .white{background:#fff}
+    .blue{
+      background:
+        radial-gradient(840px 440px at 100% 0%, rgba(0,200,255,.28), transparent 58%),
+        radial-gradient(700px 380px at 0% 100%, rgba(255,255,255,.14), transparent 56%),
+        linear-gradient(135deg, #001846 0%, #0043C9 66%, #006CFF 100%);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .blue h2,.blue h3{color:#fff}
+    .blue .eyebrow{color:#B7F0FF}
+    .blue .eyebrow::before{background:#B7F0FF}
+    .blue p{color:#DDEBFF}
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.84fr 1fr;
+      gap:48px;
+      align-items:end;
+      margin-bottom:36px;
+    }
+    .section-head p{
+      font-size:19px;
+      line-height:1.62;
+    }
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    .card{
+      border-radius:28px;
+      padding:28px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+      min-height:240px;
+    }
+    .card.glass{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      backdrop-filter:blur(16px);
+      box-shadow:0 24px 70px rgba(0,0,0,.14);
+    }
+    .card p{margin-top:10px;font-size:15.5px}
+    .card.glass p{color:#DDEBFF}
+    .icon{
+      width:54px;height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:950;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      box-shadow:0 16px 40px rgba(0,92,255,.24);
+      margin-bottom:18px;
+    }
+
+    .before-after{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:4px;
+    }
+    .ba-card{
+      border-radius:30px;
+      padding:32px;
+      min-height:260px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+    .ba-card.before{
+      background:#fff;
+      border:1px solid #E2EBFA;
+    }
+    .ba-card.after{
+      background:
+        radial-gradient(420px 240px at 100% 0%, rgba(0,200,255,.28), transparent 60%),
+        linear-gradient(135deg,#061B55,#005CFF);
+      color:#fff;
+    }
+    .ba-card.after p{color:#E6F2FF}
+    .ba-label{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:18px;
+    }
+    .before .ba-label{background:#EEF4FF;color:#0F4CDB}
+    .after .ba-label{background:rgba(255,255,255,.16);color:#B7F0FF}
+    .quote{
+      margin-top:22px;
+      padding:22px;
+      border-radius:22px;
+      background:#EEF5FF;
+      color:#103B9B;
+      font-weight:850;
+      line-height:1.45;
+    }
+    .after .quote{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.20);
+    }
+
+    .offers{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .offer-card{
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+      border-radius:30px;
+      padding:30px;
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
+    .offer-card.featured{
+      border:2px solid var(--blue);
+      transform:translateY(-10px);
+      box-shadow:0 30px 90px rgba(0,92,255,.18);
+    }
+    .recommended{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;
+      border-radius:999px;
+      padding:8px 11px;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .offer-top small{
+      display:block;
+      color:var(--blue);
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:11px;
+      margin-bottom:12px;
+    }
+    .offer-top h3{font-size:30px}
+    .offer-top p{
+      margin-top:10px;
+      font-size:15.5px;
+    }
+    .price{
+      margin-top:22px;
+      padding:20px;
+      border-radius:22px;
+      background:#F1F6FF;
+      border:1px solid #DCE8FA;
+    }
+    .price span{
+      display:block;
+      color:#6B7894;
+      font-size:13px;
+      font-weight:750;
+      margin-bottom:4px;
+    }
+    .price strong{
+      display:block;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-.06em;
+      color:var(--blue);
+    }
+
+    .list{
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+    .list li{
+      position:relative;
+      padding-left:30px;
+      font-size:15.5px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .blue .list li,.card.glass .list li{color:#E6F2FF}
+    .list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:7px;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      box-shadow:0 0 0 5px rgba(0,92,255,.13);
+    }
+
+    .method{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+    }
+    .step{
+      background:#fff;
+      border:1px solid #E2EBFA;
+      border-radius:28px;
+      padding:24px;
+      min-height:240px;
+      box-shadow:var(--shadow-soft);
+    }
+    .step small{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      color:var(--blue);
+      background:#EAF2FF;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:950;
+      margin-bottom:16px;
+    }
+    .step p{font-size:15.5px;margin-top:9px}
+
+    .deliverables{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .deliverable-card{
+      border-radius:30px;
+      padding:32px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+    }
+    .deliverable-card h3{
+      font-size:34px;
+      letter-spacing:-.05em;
+    }
+
+    .timeline{
+      display:grid;
+      gap:12px;
+    }
+    .timeline-row{
+      display:grid;
+      grid-template-columns:230px 1fr 200px;
+      gap:12px;
+    }
+    .timeline-cell{
+      border-radius:22px;
+      padding:20px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      color:var(--muted);
+      box-shadow:var(--shadow-soft);
+    }
+    .timeline-cell:first-child{
+      color:var(--text);
+      font-weight:900;
+    }
+    .timeline-cell:last-child{
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;
+      font-weight:950;
+      border:none;
+    }
+
+    .investment{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:stretch;
+    }
+    .scope{
+      border-radius:34px;
+      padding:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      backdrop-filter:blur(16px);
+      box-shadow:0 28px 80px rgba(0,0,0,.16);
+    }
+    .scope h2{color:#fff;margin-top:10px}
+    .scope p{margin-top:12px}
+    .investment-card{
+      border-radius:34px;
+      padding:30px;
+      background:#fff;
+      color:var(--text);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      box-shadow:0 30px 90px rgba(0,20,80,.24);
+    }
+    .investment-card .label{
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+    .investment-card strong{
+      display:block;
+      font-size:60px;
+      line-height:1;
+      letter-spacing:-.08em;
+      color:var(--blue);
+      margin-bottom:10px;
+    }
+    .investment-card p{font-size:15px}
+    .investment-box{
+      margin-top:18px;
+      border-radius:20px;
+      padding:18px;
+      background:#EEF5FF;
+      border:1px solid #DCE8FA;
+    }
+
+    .warning-card{
+      min-height:230px;
+      border-radius:28px;
+      padding:28px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+    }
+    .warning-card .icon{
+      background:linear-gradient(135deg,var(--warning),#FFB36B);
+    }
+    .warning-card p{margin-top:10px;font-size:15.5px}
+
+    .closing{
+      padding:98px 0 112px;
+      text-align:center;
+      background:
+        radial-gradient(800px 430px at 50% 0%, rgba(0,200,255,.22), transparent 58%),
+        linear-gradient(135deg,#001744 0%,#005CFF 100%);
+      color:#fff;
+    }
+    .closing h2{
+      color:#fff;
+      max-width:940px;
+      margin:16px auto 0;
+    }
+    .closing p{
+      max-width:790px;
+      color:#E6F2FF;
+      margin:18px auto 0;
+      font-size:19px;
+    }
+    .signature{
+      margin-top:34px;
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.24);
+      color:#fff;
+      font-weight:850;
+    }
+    .signature .brand-mark{
+      width:38px;height:38px;border-radius:12px;box-shadow:none;
+    }
+
+    @media(max-width:1020px){
+      .hero,
+      .section-head,
+      .grid-3,
+      .grid-2,
+      .before-after,
+      .offers,
+      .method,
+      .deliverables,
+      .timeline-row,
+      .investment{
+        grid-template-columns:1fr;
+      }
+      .offer-card.featured{transform:none}
+      .hero-shell{margin-top:16px}
+      .hero,.nav{padding-left:28px;padding-right:28px}
+      .hero-visual{
+        min-height:auto;
+        display:grid;
+        gap:16px;
+      }
+      .floating-window,.mini-badge{
+        position:relative;
+        inset:auto;
+        left:auto;
+        right:auto;
+        bottom:auto;
+        width:100%;
+        transform:none;
+      }
+    }
+    @media(max-width:640px){
+      .hero-shell,.container{width:min(100% - 24px,1160px)}
+      .nav{flex-direction:column;align-items:flex-start}
+      .hero h1{font-size:44px}
+      .hero .lead{font-size:18px}
+      .section{padding:70px 0}
+      .site-cards{grid-template-columns:1fr}
+      .card,.offer-card,.step,.deliverable-card,.scope,.investment-card{padding:22px}
+    }
+
+    @media print{
+      body{background:#fff}
+      .hero-shell,.card,.offer-card,.step,.deliverable-card,.timeline-cell,.investment-card,.scope,.warning-card{
+        box-shadow:none;
+      }
+      .btn{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero-shell">
+      <header class="nav">
+        <div class="brand">
+          <div class="brand-mark">AL</div>
+          <span>Alavancador</span>
+        </div>
+        <div class="nav-tag">Proposta comercial • Landing Pages e Sites</div>
+      </header>
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Presença digital estratégica</div>
+          <h1>Sites e landing pages criados para gerar confiança, autoridade e oportunidades.</h1>
+          <p class="lead">
+            Não criamos apenas páginas bonitas. Estruturamos uma presença digital clara, profissional e orientada à conversão para transformar visitantes em contatos, reuniões e oportunidades reais de negócio.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#ofertas" class="btn btn-white">Ver ofertas</a>
+            <a href="#investimento" class="btn btn-ghost">Ver investimento</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="floating-window">
+            <div class="browser-top">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="url"></div>
+            </div>
+
+            <div class="site-shot">
+              <div class="site-hero">
+                <small>Site estratégico</small>
+                <strong>Transforme sua presença digital em oportunidades.</strong>
+              </div>
+
+              <div class="site-cards">
+                <div class="site-card">
+                  <b>Clareza</b>
+                  <span>Oferta compreensível em poucos segundos.</span>
+                </div>
+                <div class="site-card">
+                  <b>Autoridade</b>
+                  <span>Diferenciais, prova social e posicionamento.</span>
+                </div>
+                <div class="site-card">
+                  <b>Conversão</b>
+                  <span>CTA para WhatsApp, formulário ou agenda.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-badge">
+            <strong>20 dias</strong>
+            <span>prazo estimado para um site institucional estratégico após briefing aprovado e materiais enviados.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Diagnóstico</div>
+            <h2>O problema raramente é “não ter um site”. É ter uma presença digital que não vende confiança.</h2>
+          </div>
+          <p>
+            Um site institucional ou uma landing page precisa responder rapidamente: quem é a empresa, o que ela oferece, por que confiar e qual próximo passo o visitante deve tomar. Quando isso não fica claro, o cliente compara apenas preço — ou simplesmente sai sem chamar.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Credibilidade</h3>
+            <p>Transmitir profissionalismo, segurança e consistência visual para que o visitante confie na empresa.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Clareza comercial</h3>
+            <p>Explicar a oferta, os serviços e os diferenciais sem ruído, excesso de informação ou mensagem genérica.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Conversão</h3>
+            <p>Conduzir o usuário para uma ação objetiva: WhatsApp, formulário, agendamento, orçamento ou compra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Reposicionamento</div>
+            <h2>De orçamento de web design para proposta de crescimento comercial.</h2>
+          </div>
+          <p>
+            A principal mudança é de percepção. O cliente não deve enxergar o projeto como “criação de uma página”, mas como uma estrutura digital pensada para gerar autoridade, confiança e oportunidades.
+          </p>
+        </div>
+
+        <div class="before-after">
+          <div class="ba-card before">
+            <span class="ba-label">Antes</span>
+            <h3>“Proposta Web Designer”</h3>
+            <p style="margin-top:12px;">
+              Comunicação centrada em criação visual, páginas e execução técnica. Isso facilita comparação por preço e reduz a percepção de valor estratégico.
+            </p>
+            <div class="quote">“Vou pagar por um site bonito.”</div>
+          </div>
+
+          <div class="ba-card after">
+            <span class="ba-label">Depois</span>
+            <h3>“Site Estratégico para Conversão e Autoridade”</h3>
+            <p style="margin-top:12px;">
+              Comunicação centrada em posicionamento, clareza da oferta, confiança e geração de oportunidades comerciais.
+            </p>
+            <div class="quote">“Vou investir em uma estrutura para minha marca vender melhor.”</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ofertas" class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Arquitetura de ofertas</div>
+            <h2>Três caminhos claros para diferentes níveis de maturidade.</h2>
+          </div>
+          <p>
+            Separar Landing Page, Site Essencial e Site Autoridade reduz confusão, melhora a ancoragem de valor e ajuda o cliente a escolher pelo objetivo de negócio — não apenas pelo preço.
+          </p>
+        </div>
+
+        <div class="offers">
+          <article class="offer-card">
+            <div class="offer-top">
+              <small>Oferta 01</small>
+              <h3>Landing Start</h3>
+              <p>Ideal para campanhas, validação de oferta, tráfego pago, captação de leads ou venda de um serviço específico.</p>
+              <ul class="list">
+                <li>01 página estratégica.</li>
+                <li>Estrutura focada em conversão.</li>
+                <li>CTA para WhatsApp, formulário ou agendamento.</li>
+                <li>Prova social, benefícios, FAQ e chamada final.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong>A partir de R$ [inserir]</strong>
+            </div>
+          </article>
+
+          <article class="offer-card featured">
+            <span class="recommended">Recomendado</span>
+            <div class="offer-top">
+              <small>Oferta 02</small>
+              <h3>Site Essencial</h3>
+              <p>Ideal para empresas que precisam de presença institucional profissional, clara e preparada para gerar oportunidades.</p>
+              <ul class="list">
+                <li>Até 04 páginas padrão.</li>
+                <li>Home, Quem Somos, Serviços e Contato.</li>
+                <li>Layout personalizado e responsivo.</li>
+                <li>SEO on-page básico, publicação e suporte inicial.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong>R$ 2.997</strong>
+            </div>
+          </article>
+
+          <article class="offer-card">
+            <div class="offer-top">
+              <small>Oferta 03</small>
+              <h3>Site Autoridade</h3>
+              <p>Ideal para empresas que querem posicionamento mais forte, mais profundidade comercial e estrutura mais robusta.</p>
+              <ul class="list">
+                <li>Mais páginas e maior profundidade.</li>
+                <li>Páginas individuais de serviços.</li>
+                <li>Cases, blog, conteúdos e integrações.</li>
+                <li>Estrutura ideal para autoridade e crescimento.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong>Sob consulta</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Metodologia Alavancador</div>
+            <h2>Um processo enxuto, mas com visão estratégica do início ao go-live.</h2>
+          </div>
+          <p>
+            O projeto é conduzido para evitar improviso: primeiro entendemos o negócio, depois estruturamos a jornada, criamos o layout, desenvolvemos, publicamos e orientamos o cliente para uso básico.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card glass">
+            <div class="icon">1</div>
+            <h3>Briefing estratégico</h3>
+            <p>Levantamento de público, objetivo, oferta, concorrentes, diferenciais, tom de comunicação e materiais disponíveis.</p>
+          </article>
+
+          <article class="card glass">
+            <div class="icon">2</div>
+            <h3>Arquitetura e jornada</h3>
+            <p>Planejamento da estrutura da página ou site para organizar narrativa, seções, CTAs e pontos de conversão.</p>
+          </article>
+
+          <article class="card glass">
+            <div class="icon">3</div>
+            <h3>Design responsivo</h3>
+            <p>Criação visual adaptada para desktop, tablet e mobile, priorizando leitura, confiança e ação.</p>
+          </article>
+
+          <article class="card glass">
+            <div class="icon">4</div>
+            <h3>Desenvolvimento</h3>
+            <p>Construção do site em WordPress + Elementor ou tecnologia definida no projeto, conforme escopo aprovado.</p>
+          </article>
+
+          <article class="card glass">
+            <div class="icon">5</div>
+            <h3>Publicação</h3>
+            <p>Configurações básicas de domínio, publicação, SEO on-page e integrações simples, quando os acessos forem fornecidos.</p>
+          </article>
+
+          <article class="card glass">
+            <div class="icon">6</div>
+            <h3>Orientação e suporte</h3>
+            <p>Tutorial ou treinamento básico para alterações simples e suporte inicial após publicação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Entregáveis-chave</div>
+            <h2>O que precisa ficar evidente para o cliente.</h2>
+          </div>
+          <p>
+            Quanto mais tangível o escopo, menor a chance de o cliente enxergar o site como commodity. Abaixo está a base ideal para apresentar landing pages e sites institucionais com mais valor percebido.
+          </p>
+        </div>
+
+        <div class="deliverables">
+          <article class="deliverable-card">
+            <h3>Landing Page Estratégica</h3>
+            <p style="margin-top:10px;">Para campanhas, lançamentos, captação de leads e validação de uma oferta específica.</p>
+
+            <ul class="list">
+              <li>Briefing estratégico para entender público, oferta e objetivo.</li>
+              <li>Wireframe e estruturação da jornada de conversão.</li>
+              <li>Layout personalizado e responsivo.</li>
+              <li>Seções: hero, problema, solução, benefícios, prova social, FAQ e CTA.</li>
+              <li>Integração com WhatsApp, formulário ou agendamento.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Publicação da página e suporte inicial pós-entrega.</li>
+            </ul>
+          </article>
+
+          <article class="deliverable-card">
+            <h3>Site Institucional Estratégico</h3>
+            <p style="margin-top:10px;">Para empresas que precisam apresentar marca, serviços, diferenciais, autoridade e canais de contato.</p>
+
+            <ul class="list">
+              <li>Briefing estratégico e planejamento da arquitetura do site.</li>
+              <li>Layout personalizado e responsivo.</li>
+              <li>Estrutura padrão: Home, Quem Somos, Serviços e Contato.</li>
+              <li>Seções de autoridade, diferenciais, cases/prova social e CTAs.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Orientação sobre hospedagem, domínio e e-mail profissional.</li>
+              <li>Tutorial ou treinamento básico e suporte inicial pós-publicação.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Processo de execução</div>
+            <h2>Uma sequência clara para evitar desalinhamento.</h2>
+          </div>
+          <p>
+            A proposta deve mostrar o fluxo de trabalho para o cliente entender que existe método, etapas e responsabilidades compartilhadas.
+          </p>
+        </div>
+
+        <div class="method">
+          <article class="step">
+            <small>Etapa 01</small>
+            <h3>Briefing</h3>
+            <p>Coleta de informações, objetivos, materiais, referências e acessos necessários.</p>
+          </article>
+          <article class="step">
+            <small>Etapa 02</small>
+            <h3>Estrutura</h3>
+            <p>Definição da arquitetura, seções, páginas, CTAs e narrativa comercial.</p>
+          </article>
+          <article class="step">
+            <small>Etapa 03</small>
+            <h3>Layout</h3>
+            <p>Criação visual responsiva e validação da direção estética do projeto.</p>
+          </article>
+          <article class="step">
+            <small>Etapa 04</small>
+            <h3>Desenvolvimento</h3>
+            <p>Construção, ajustes técnicos, responsividade, SEO básico e integrações simples.</p>
+          </article>
+          <article class="step">
+            <small>Etapa 05</small>
+            <h3>Go-live</h3>
+            <p>Publicação, orientação de uso e suporte inicial conforme escopo contratado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Estrutura ideal da proposta</div>
+            <h2>Ordem recomendada para vender melhor o projeto.</h2>
+          </div>
+          <p>
+            Antes de apresentar o preço, a proposta precisa construir valor com diagnóstico, estratégia, método e entregáveis.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-cell">1. Capa premium</div>
+            <div class="timeline-cell">Apresentação personalizada, cliente, data, validade e posicionamento da oferta.</div>
+            <div class="timeline-cell">Primeira impressão</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-cell">2. Diagnóstico</div>
+            <div class="timeline-cell">Contextualização do problema: presença digital, confiança, clareza e conversão.</div>
+            <div class="timeline-cell">Consciência</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-cell">3. Solução</div>
+            <div class="timeline-cell">Explicação do que será construído e por que isso resolve o problema comercial.</div>
+            <div class="timeline-cell">Valor</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-cell">4. Entregáveis</div>
+            <div class="timeline-cell">Escopo claro, páginas, seções, integrações simples, SEO básico e suporte.</div>
+            <div class="timeline-cell">Tangibilidade</div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-cell">5. Investimento</div>
+            <div class="timeline-cell">Preço, condições, prazo, validade da proposta e próximos passos.</div>
+            <div class="timeline-cell">Decisão</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="investimento">
+      <div class="container">
+        <div class="investment">
+          <div class="scope">
+            <div class="eyebrow">Oferta recomendada</div>
+            <h2>Site Institucional Estratégico</h2>
+            <p>
+              Projeto indicado para empresas que precisam de uma presença digital profissional, clara e preparada para gerar confiança e oportunidades comerciais.
+            </p>
+
+            <ul class="list">
+              <li>Planejamento, design, desenvolvimento e publicação do site.</li>
+              <li>Até 04 páginas padrão: Home, Quem Somos, Serviços e Contato.</li>
+              <li>Layout personalizado, responsivo e alinhado à identidade da marca.</li>
+              <li>Estrutura com diferenciais, prova social, serviços, CTAs e canais de contato.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Orientação sobre domínio, hospedagem e e-mail profissional.</li>
+              <li>Treinamento/tutorial básico e suporte inicial após publicação.</li>
+            </ul>
+          </div>
+
+          <aside class="investment-card">
+            <div class="label">Investimento</div>
+            <strong>R$ 2.997</strong>
+            <p>Condição: Pix ou 12x de R$ 265 no cartão.</p>
+
+            <div class="investment-box">
+              <p><b style="color:#103B9B;">Prazo estimado</b><br/>Até 20 dias úteis após briefing aprovado e envio completo dos materiais.</p>
+            </div>
+
+            <div class="investment-box">
+              <p><b style="color:#103B9B;">Validade da proposta</b><br/>7 dias a partir da data de envio.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Limites do escopo</div>
+            <h2>O que não está incluso no projeto padrão.</h2>
+          </div>
+          <p>
+            Esta seção protege a entrega e evita que o cliente interprete o projeto como uma solução ilimitada. O ideal é apresentar os limites com clareza e elegância.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="warning-card">
+            <div class="icon">!</div>
+            <h3>Produção e marca</h3>
+            <p>Não inclui criação completa de identidade visual, produção profissional de fotos, vídeos ou redações técnicas/jurídicas especializadas.</p>
+          </article>
+
+          <article class="warning-card">
+            <div class="icon">!</div>
+            <h3>Marketing contínuo</h3>
+            <p>Não inclui gestão de tráfego pago, gestão de redes sociais, produção de conteúdo mensal ou SEO avançado contínuo.</p>
+          </article>
+
+          <article class="warning-card">
+            <div class="icon">!</div>
+            <h3>Ferramentas e integrações</h3>
+            <p>Não inclui domínio, hospedagem, licenças pagas, plugins premium, integrações avançadas com CRM/ERP ou manutenção contínua.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="closing">
+      <div class="container">
+        <div class="eyebrow" style="justify-content:center;color:#B7F0FF;">Direcionamento final</div>
+        <h2>O produto principal não é “Web Designer”. É Site Estratégico para Conversão e Autoridade.</h2>
+        <p>
+          Esse reposicionamento aumenta o valor percebido, melhora o argumento comercial e reduz a comparação direta por preço. A proposta passa a vender uma solução de crescimento comercial, não apenas criação visual.
+        </p>
+
+        <div class="signature">
+          <div class="brand-mark">AL</div>
+          <span>Alavancador Soluções Digitais • Especialistas em soluções digitais para PMEs</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
