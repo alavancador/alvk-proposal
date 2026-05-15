@@ -1096,7 +1096,15 @@
         grid-template-columns:1fr;
       }
       .offer-card.featured{transform:none}
-      .hero-shell{margin-top:16px;background-position:72% center}
+      /* remove background photo on mobile — overlay fades badly at 1 column */
+      .hero-shell{
+        margin-top:16px;
+        background-image:none;
+        background:
+          radial-gradient(560px 340px at 92% 0%, rgba(0,200,255,.24), transparent 62%),
+          radial-gradient(400px 320px at 0% 100%, rgba(255,255,255,.08), transparent 60%),
+          linear-gradient(135deg, #001846 0%, #0043C9 62%, #005CFF 100%);
+      }
       .hero,.nav{padding-left:28px;padding-right:28px}
       .hero-visual{min-height:auto;display:grid;gap:16px}
       .floating-window,.mini-badge{
