@@ -3,76 +3,1962 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta Comercial | Alavancador Soluções Digitais</title>
-  <meta name="description" content="Sites e landing pages criados para gerar confiança, autoridade e oportunidades." />
+  <title>Proposta Comercial | Landing Pages e Sites Institucionais — Alavancador</title>
+
+  <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Proposta Comercial — Alavancador Soluções Digitais" />
-  <meta property="og:description" content="Presença digital estratégica para transformar visitantes em contatos e oportunidades." />
+  <meta property="og:description" content="Sites e landing pages criados para gerar confiança, autoridade e oportunidades. Transforme sua presença digital em resultado comercial." />
+  <meta property="og:image" content="https://alavancador.com.br/og-proposta.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
   <style>
-    /* 1. Reset/base */
-    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Nunito",system-ui,sans-serif;background:#080d1f;color:#fff;line-height:1.55;overflow-x:hidden}h1,h2,h3,p,ul{margin:0}a{text-decoration:none;color:inherit}ul{padding:0;list-style:none}
-    :focus-visible{outline:2px solid #4B8FFF;outline-offset:3px;border-radius:8px}
-    /* 2. Tokens/variáveis */
-    :root{--bg:#080d1f;--bg-2:#0d1535;--primary:#1463F3;--primary-light:#4B8FFF;--accent:#E17100;--text:#fff;--muted:rgba(255,255,255,.6);--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--radius:20px;--container:min(1200px,calc(100% - 2rem));}
-    /* 3. Layout global */
-    .container{width:var(--container);margin-inline:auto}.section{padding:clamp(3.5rem,6vw,6rem) 0}.section-header{display:grid;gap:1rem;max-width:900px;margin-bottom:2rem}.section-header h2{font:800 clamp(1.8rem,4vw,3rem)/1.1 "Syne",sans-serif}.section-header p{color:var(--muted);font-size:clamp(1rem,1.5vw,1.15rem)}
-    .grid{display:grid;gap:1rem}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;backdrop-filter:blur(8px);transition:.25s}.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
-    .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#A9CBFF}.badge{display:inline-flex;padding:.35rem .65rem;border-radius:999px;border:1px solid var(--line);font-size:.75rem;font-weight:700}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.2rem;border-radius:999px;font-weight:700;border:1px solid transparent;transition:.2s}.btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-light)}.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.06)}
-    /* 4. Navbar */
-    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,13,31,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.25s}.navbar.scrolled{border-color:var(--line)}.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font:800 1.2rem "Syne",sans-serif}.logo span{color:var(--accent)}.nav-links{display:flex;gap:.8rem;align-items:center}.nav-links a{font-weight:700;color:var(--muted);padding:.4rem .6rem}
-    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:10px;padding:.4rem .6rem}.drawer{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);background:#0b1230;border-left:1px solid var(--line);transform:translateX(100%);transition:.25s;padding:1.5rem;z-index:1001}.drawer.open{transform:translateX(0)}
-    /* 5. Hero */
-    .hero-wrap{padding-top:96px}.hero{background:radial-gradient(circle at 20% 0%,rgba(75,143,255,.25),transparent 40%),radial-gradient(circle at 80% 80%,rgba(225,113,0,.2),transparent 45%),linear-gradient(135deg,#0b1230,#080d1f);border:1px solid var(--line);border-radius:28px;padding:clamp(1.4rem,3vw,3rem);display:grid;grid-template-columns:1.05fr .95fr;gap:1.5rem;align-items:center}
-    h1{font:800 clamp(2rem,5vw,4rem)/1.05 "Syne",sans-serif;max-width:18ch}.hero p{color:var(--muted);font-size:clamp(1rem,1.6vw,1.15rem);margin-top:1rem}.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-top:1rem}.hero-keywords{margin-top:1rem;color:#9dc1ff}.mockup{min-height:360px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#111c47,#0a1538);padding:1rem}.mockup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:.8rem}.mini{height:90px;border-radius:14px;background:rgba(255,255,255,.08)}
-    /* 6. Cards/componentes */
-    .number{font:800 1.7rem "Syne",sans-serif;color:#8ab4ff}.check li{display:flex;gap:.55rem;color:var(--muted);margin:.45rem 0}.check li::before{content:"✓";color:#7db1ff;font-weight:700}
-    /* 7. Seções */
-    #diagnostico .grid,#metodologia .grid,#limites .grid{grid-template-columns:repeat(3,minmax(0,1fr))}#entregaveis .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .processo{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.8rem}.step{position:relative}.step::after{content:"";position:absolute;top:1.1rem;left:calc(100% + .25rem);width:calc(100% - .5rem);height:1px;background:var(--line)}.step:last-child::after{display:none}
-    /* 8. Planos */
-    .planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.plan-card{display:flex;flex-direction:column;gap:1rem}.plan-card.recommended{border-color:#4B8FFF;box-shadow:0 0 0 1px #4B8FFF inset}.price{font:800 2rem "Syne",sans-serif}
-    /* 9. Accordion/FAQ */
-    .accordion{display:grid;gap:.8rem}.acc-item{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}.acc-btn{width:100%;text-align:left;background:none;border:0;color:#fff;padding:1rem;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer}.acc-panel{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 1rem}.acc-panel p{padding-bottom:1rem;color:var(--muted)}
-    .whats{position:fixed;right:16px;bottom:16px;z-index:999}
-    /* 10. Responsividade */
-    @media (max-width:1024px){.hero{grid-template-columns:1fr}.planos,#diagnostico .grid,#metodologia .grid,#limites .grid{grid-template-columns:repeat(2,minmax(0,1fr))}.processo{grid-template-columns:1fr 1fr 1fr}.step:nth-child(3)::after{display:none}}
-    @media (max-width:768px){.nav-links{display:none}.menu-toggle{display:inline-flex}.processo{grid-template-columns:1fr}.step::after{left:1.1rem;top:100%;width:1px;height:16px}.step:last-child::after{display:none}#entregaveis .grid,.planos,#diagnostico .grid,#metodologia .grid,#limites .grid{grid-template-columns:1fr}.benefits{grid-template-columns:1fr}.hero-wrap{padding-top:82px}}
-    @media (max-width:480px){.container{width:min(1200px,calc(100% - 1rem))}.btn{width:100%}}
+    :root{
+      --blue:#005CFF;
+      --blue-2:#006DFF;
+      --blue-3:#003FB8;
+      --cyan:#00C8FF;
+      --navy:#020A1F;
+      --deep:#001744;
+      --ice:#F4F8FF;
+      --ice-2:#EAF2FF;
+      --white:#FFFFFF;
+      --text:#07122F;
+      --muted:#53627E;
+      --line:#DCE7F8;
+      --green:#00A88E;
+      --purple:#7B3FF2;
+      --warning:#FF6B35;
+      --shadow-blue:0 34px 90px rgba(0,92,255,.25);
+      --shadow-soft:0 22px 60px rgba(10,32,80,.11);
+      --radius-xl:34px;
+      --radius-lg:26px;
+      --radius-md:18px;
+      --container:min(1160px, calc(100% - 40px));
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:#F5F8FE;
+      line-height:1.55;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(48px, 7vw, 88px);
+      line-height:.91;
+      letter-spacing:-.075em;
+      font-weight:950;
+    }
+    h2{
+      font-size:clamp(34px, 4.6vw, 62px);
+      line-height:.96;
+      letter-spacing:-.06em;
+      font-weight:950;
+    }
+    h3{
+      font-size:24px;
+      line-height:1.1;
+      letter-spacing:-.035em;
+      font-weight:850;
+    }
+    p{
+      color:var(--muted);
+      font-size:17px;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .page{overflow:hidden;background:#fff}
+    .container{width:var(--container);margin:0 auto}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:950;
+      margin-bottom:18px;
+    }
+    .eyebrow::before{
+      content:"";
+      width:30px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--cyan),var(--blue));
+    }
+
+    /* ── FIXED NAVBAR ── */
+    .fixed-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:999;
+      padding:0 24px;
+      height:60px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:transparent;
+      transition:background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+      pointer-events:none;
+      opacity:0;
+    }
+    .fixed-nav.visible{
+      pointer-events:all;
+      opacity:1;
+    }
+    .fixed-nav.scrolled{
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(18px);
+      box-shadow:0 2px 24px rgba(10,32,80,.10);
+    }
+    .fixed-nav .fn-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:950;
+      font-size:16px;
+      letter-spacing:-.04em;
+      color:var(--text);
+    }
+    .fixed-nav .fn-mark{
+      width:32px;height:32px;
+      border-radius:10px;
+      background:var(--blue);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:11px;
+      font-weight:950;
+    }
+    .fixed-nav nav{
+      display:flex;
+      gap:4px;
+    }
+    .fixed-nav nav a{
+      padding:7px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:750;
+      color:var(--muted);
+      transition:.18s ease;
+    }
+    .fixed-nav nav a:hover{
+      background:var(--ice-2);
+      color:var(--blue);
+    }
+    .fixed-nav .fn-cta{
+      padding:9px 18px;
+      border-radius:999px;
+      background:var(--blue);
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      transition:.2s ease;
+    }
+    .fixed-nav .fn-cta:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 24px rgba(0,92,255,.3);
+    }
+
+    /* ── HERO ── */
+    .hero-shell{
+      width:var(--container);
+      margin:34px auto 0;
+      min-height:690px;
+      position:relative;
+      border-radius:36px;
+      overflow:hidden;
+      background:
+        radial-gradient(860px 440px at 78% 8%, rgba(0,200,255,.36), transparent 58%),
+        radial-gradient(720px 480px at 0% 100%, rgba(255,255,255,.14), transparent 60%),
+        linear-gradient(135deg, #005CFF 0%, #004BD2 54%, #002878 100%);
+      box-shadow:var(--shadow-blue);
+      color:#fff;
+    }
+    .hero-shell::after{
+      content:"";
+      position:absolute;
+      right:-180px;
+      bottom:-240px;
+      width:650px;
+      height:650px;
+      border:74px solid rgba(255,255,255,.13);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
+    .nav{
+      position:relative;
+      z-index:2;
+      padding:34px 46px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-size:24px;
+      font-weight:950;
+      letter-spacing:-.04em;
+    }
+    .brand-mark{
+      width:46px;height:46px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.26);
+      box-shadow:0 18px 40px rgba(0,0,0,.14);
+      font-size:15px;
+    }
+    .nav-tag{
+      padding:11px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.24);
+      color:#ECF5FF;
+      font-weight:850;
+      font-size:13px;
+      backdrop-filter:blur(14px);
+    }
+
+    .hero{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:42px;
+      align-items:center;
+      padding:64px 46px 64px;
+    }
+    .hero .eyebrow{color:#B7F0FF}
+    .hero .eyebrow::before{background:#B7F0FF}
+    .hero h1{max-width:720px;color:#fff}
+    .hero .lead{
+      margin-top:24px;
+      color:#E6F2FF;
+      font-size:22px;
+      max-width:660px;
+      line-height:1.5;
+    }
+    .hero-actions{
+      margin-top:34px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:15px 22px;
+      border-radius:999px;
+      font-weight:900;
+      transition:.22s ease;
+      font-size:15px;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-white{
+      background:#fff;
+      color:var(--blue);
+      box-shadow:0 16px 42px rgba(255,255,255,.18);
+    }
+    .btn-ghost{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(255,255,255,.10);
+      backdrop-filter:blur(14px);
+    }
+    .btn-loading .btn-text{opacity:0}
+    .btn-loading::after{
+      content:"";
+      position:absolute;
+      width:16px;height:16px;
+      border:2px solid currentColor;
+      border-top-color:transparent;
+      border-radius:50%;
+      animation:spin .6s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .hero-visual{position:relative;min-height:510px}
+    .floating-window{
+      position:absolute;
+      inset:16px 0 auto auto;
+      width:min(100%, 520px);
+      min-height:370px;
+      border-radius:30px;
+      background:#fff;
+      box-shadow:0 30px 90px rgba(0,20,80,.34);
+      overflow:hidden;
+      transform:rotate(1.5deg);
+      border:1px solid rgba(255,255,255,.65);
+    }
+    .browser-top{
+      height:52px;
+      background:#F4F8FF;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 18px;
+      border-bottom:1px solid #E5EEFC;
+    }
+    .dots{display:flex;gap:8px}
+    .dots i{
+      width:10px;height:10px;border-radius:50%;
+      background:#BFD1EF;
+      display:block;
+    }
+    .url{
+      width:55%;
+      height:22px;
+      border-radius:999px;
+      background:#EAF1FE;
+    }
+    .site-shot{
+      padding:22px;
+      background:#fff;
+      display:grid;
+      gap:14px;
+    }
+    .site-hero{
+      border-radius:24px;
+      min-height:150px;
+      background:
+        radial-gradient(220px 140px at 90% 0%, rgba(0,200,255,.32), transparent 62%),
+        linear-gradient(135deg, #07122F 0%, #005CFF 100%);
+      color:#fff;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .site-hero small{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:10px;
+      color:#9FEAFF;
+      font-weight:950;
+      margin-bottom:8px;
+    }
+    .site-hero strong{
+      font-size:27px;
+      line-height:1;
+      letter-spacing:-.05em;
+      max-width:330px;
+    }
+    .site-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .site-card{
+      min-height:96px;
+      border-radius:18px;
+      background:#F4F8FF;
+      border:1px solid #E1EAF9;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .site-card b{
+      color:#103B9B;
+      font-size:12px;
+      line-height:1.2;
+    }
+    .site-card span{
+      color:#6B7894;
+      font-size:11px;
+      line-height:1.35;
+    }
+    .mini-badge{
+      position:absolute;
+      left:-4px;
+      bottom:48px;
+      width:250px;
+      padding:18px;
+      border-radius:24px;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      backdrop-filter:blur(18px);
+      box-shadow:0 24px 70px rgba(0,0,0,.20);
+      color:#fff;
+      z-index:4;
+    }
+    .mini-badge strong{
+      display:block;
+      font-size:42px;
+      line-height:1;
+      letter-spacing:-.07em;
+    }
+    .mini-badge span{
+      display:block;
+      margin-top:8px;
+      font-size:13px;
+      color:#E6F2FF;
+      line-height:1.45;
+    }
+
+    .section{padding:94px 0}
+    .light{background:#F5F8FE}
+    .white{background:#fff}
+    .blue{
+      background:
+        radial-gradient(840px 440px at 100% 0%, rgba(0,200,255,.28), transparent 58%),
+        radial-gradient(700px 380px at 0% 100%, rgba(255,255,255,.14), transparent 56%),
+        linear-gradient(135deg, #001846 0%, #0043C9 66%, #006CFF 100%);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .blue h2,.blue h3{color:#fff}
+    .blue .eyebrow{color:#B7F0FF}
+    .blue .eyebrow::before{background:#B7F0FF}
+    .blue p{color:#DDEBFF}
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.84fr 1fr;
+      gap:48px;
+      align-items:end;
+      margin-bottom:36px;
+    }
+    .section-head p{
+      font-size:19px;
+      line-height:1.62;
+    }
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    .card{
+      border-radius:28px;
+      padding:28px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+      min-height:240px;
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 32px 80px rgba(10,32,80,.16);
+    }
+    .card.glass{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      backdrop-filter:blur(16px);
+      box-shadow:0 24px 70px rgba(0,0,0,.14);
+    }
+    .card.glass:hover{
+      transform:translateY(-6px);
+      box-shadow:0 32px 80px rgba(0,0,0,.22);
+    }
+    .card p{margin-top:10px;font-size:15.5px}
+    .card.glass p{color:#DDEBFF}
+    .icon{
+      width:54px;height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:950;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      box-shadow:0 16px 40px rgba(0,92,255,.24);
+      margin-bottom:18px;
+    }
+
+    .before-after{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:4px;
+    }
+    .ba-card{
+      border-radius:30px;
+      padding:32px;
+      min-height:260px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+    }
+    .ba-card.before{
+      background:#fff;
+      border:1px solid #E2EBFA;
+    }
+    .ba-card.after{
+      background:
+        radial-gradient(420px 240px at 100% 0%, rgba(0,200,255,.28), transparent 60%),
+        linear-gradient(135deg,#061B55,#005CFF);
+      color:#fff;
+    }
+    .ba-card.after p{color:#E6F2FF}
+    .ba-label{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:18px;
+    }
+    .before .ba-label{background:#EEF4FF;color:#0F4CDB}
+    .after .ba-label{background:rgba(255,255,255,.16);color:#B7F0FF}
+    .quote{
+      margin-top:22px;
+      padding:22px;
+      border-radius:22px;
+      background:#EEF5FF;
+      color:#103B9B;
+      font-weight:850;
+      line-height:1.45;
+    }
+    .after .quote{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.20);
+    }
+
+    /* ── PLAN TOGGLE ── */
+    .plan-toggle-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      margin-bottom:36px;
+    }
+    .toggle-label{
+      font-size:14px;
+      font-weight:750;
+      color:var(--muted);
+      transition:.2s;
+    }
+    .toggle-label.active{color:var(--blue)}
+    .toggle-switch{
+      position:relative;
+      width:52px;height:28px;
+      background:#E2EBFA;
+      border-radius:999px;
+      cursor:pointer;
+      transition:background .25s ease;
+      border:none;
+      outline:none;
+      flex-shrink:0;
+    }
+    .toggle-switch.on{background:var(--blue)}
+    .toggle-switch::after{
+      content:"";
+      position:absolute;
+      left:3px;top:3px;
+      width:22px;height:22px;
+      border-radius:50%;
+      background:#fff;
+      box-shadow:0 2px 8px rgba(0,0,0,.18);
+      transition:transform .25s ease;
+    }
+    .toggle-switch.on::after{transform:translateX(24px)}
+    .discount-badge{
+      display:inline-flex;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#E6F9E6;
+      color:#14803C;
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.05em;
+    }
+
+    .offers{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .offer-card{
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+      border-radius:30px;
+      padding:30px;
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .offer-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 36px 90px rgba(10,32,80,.16);
+    }
+    .offer-card.featured{
+      border:2px solid var(--blue);
+      transform:translateY(-10px);
+      box-shadow:0 30px 90px rgba(0,92,255,.18);
+    }
+    .offer-card.featured:hover{
+      transform:translateY(-16px);
+      box-shadow:0 40px 100px rgba(0,92,255,.24);
+    }
+    .recommended{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;
+      border-radius:999px;
+      padding:8px 11px;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .offer-top small{
+      display:block;
+      color:var(--blue);
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:11px;
+      margin-bottom:12px;
+    }
+    .offer-top h3{font-size:30px}
+    .offer-top p{
+      margin-top:10px;
+      font-size:15.5px;
+    }
+    .price{
+      margin-top:22px;
+      padding:20px;
+      border-radius:22px;
+      background:#F1F6FF;
+      border:1px solid #DCE8FA;
+    }
+    .price span{
+      display:block;
+      color:#6B7894;
+      font-size:13px;
+      font-weight:750;
+      margin-bottom:4px;
+    }
+    .price strong{
+      display:block;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-.06em;
+      color:var(--blue);
+      transition:opacity .25s ease, transform .25s ease;
+    }
+    .price strong.fading{opacity:0;transform:translateY(8px)}
+    .price .price-sub{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:4px;
+      min-height:18px;
+    }
+
+    .list{
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+    .list li{
+      position:relative;
+      padding-left:30px;
+      font-size:15.5px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .blue .list li,.card.glass .list li{color:#E6F2FF}
+    .list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:7px;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      box-shadow:0 0 0 5px rgba(0,92,255,.13);
+    }
+
+    /* ── ACCORDION (processo) ── */
+    .method-accordion{display:grid;gap:12px;position:relative}
+    .method-accordion::before{
+      content:"";
+      position:absolute;
+      left:27px;
+      top:54px;
+      bottom:54px;
+      width:2px;
+      background:linear-gradient(180deg,var(--blue),var(--cyan));
+      border-radius:999px;
+      transform-origin:top center;
+      transform:scaleY(0);
+      transition:transform 0s;
+    }
+    .method-accordion.line-drawn::before{
+      transform:scaleY(1);
+      transition:transform 1.2s ease;
+    }
+    .acc-item{
+      background:#fff;
+      border:1px solid #E2EBFA;
+      border-radius:28px;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      transition:box-shadow .25s ease;
+    }
+    .acc-item.open{
+      box-shadow:0 28px 70px rgba(0,92,255,.14);
+      border-color:var(--blue);
+    }
+    .acc-header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:22px 24px;
+      cursor:pointer;
+      user-select:none;
+      transition:background .18s;
+    }
+    .acc-header:hover{background:#F7FAFF}
+    .acc-step-num{
+      display:inline-flex;
+      flex-shrink:0;
+      padding:7px 10px;
+      border-radius:999px;
+      color:var(--blue);
+      background:#EAF2FF;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:950;
+    }
+    .acc-header h3{
+      flex:1;
+      font-size:19px;
+      margin:0;
+    }
+    .acc-chevron{
+      width:30px;height:30px;
+      border-radius:50%;
+      background:#F1F6FF;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+      transition:transform .28s ease, background .18s;
+      color:var(--blue);
+    }
+    .acc-item.open .acc-chevron{
+      transform:rotate(180deg);
+      background:var(--blue);
+      color:#fff;
+    }
+    .acc-body{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+    }
+    .acc-body-inner{
+      padding:0 24px 24px;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.65;
+    }
+
+    /* ── DELIVERABLES ── */
+    .deliverables{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .deliverable-card{
+      border-radius:30px;
+      padding:32px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+    }
+    .deliverable-card h3{
+      font-size:34px;
+      letter-spacing:-.05em;
+    }
+
+    .timeline{
+      display:grid;
+      gap:12px;
+    }
+    .timeline-row{
+      display:grid;
+      grid-template-columns:230px 1fr 200px;
+      gap:12px;
+    }
+    .timeline-cell{
+      border-radius:22px;
+      padding:20px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      color:var(--muted);
+      box-shadow:var(--shadow-soft);
+    }
+    .timeline-cell:first-child{
+      color:var(--text);
+      font-weight:900;
+    }
+    .timeline-cell:last-child{
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;
+      font-weight:950;
+      border:none;
+    }
+
+    .investment{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:stretch;
+    }
+    .scope{
+      border-radius:34px;
+      padding:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      backdrop-filter:blur(16px);
+      box-shadow:0 28px 80px rgba(0,0,0,.16);
+    }
+    .scope h2{color:#fff;margin-top:10px}
+    .scope p{margin-top:12px}
+    .investment-card{
+      border-radius:34px;
+      padding:30px;
+      background:#fff;
+      color:var(--text);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      box-shadow:0 30px 90px rgba(0,20,80,.24);
+    }
+    .investment-card .label{
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+    .investment-card strong{
+      display:block;
+      font-size:60px;
+      line-height:1;
+      letter-spacing:-.08em;
+      color:var(--blue);
+      margin-bottom:10px;
+    }
+    .investment-card p{font-size:15px}
+    .investment-box{
+      margin-top:18px;
+      border-radius:20px;
+      padding:18px;
+      background:#EEF5FF;
+      border:1px solid #DCE8FA;
+    }
+
+    .warning-card{
+      min-height:230px;
+      border-radius:28px;
+      padding:28px;
+      background:#fff;
+      border:1px solid #E2EBFA;
+      box-shadow:var(--shadow-soft);
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .warning-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 28px 70px rgba(10,32,80,.14);
+    }
+    .warning-card .icon{
+      background:linear-gradient(135deg,var(--warning),#FFB36B);
+    }
+    .warning-card p{margin-top:10px;font-size:15.5px}
+
+    /* ── FAQ ── */
+    .faq-section{padding:94px 0;background:#fff}
+    .faq-list{display:grid;gap:10px;margin-top:4px}
+    .faq-item{
+      border-radius:22px;
+      border:1px solid #E2EBFA;
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 4px 18px rgba(10,32,80,.05);
+      transition:box-shadow .22s ease;
+    }
+    .faq-item.open{
+      box-shadow:0 14px 40px rgba(0,92,255,.10);
+      border-color:var(--blue);
+    }
+    .faq-q{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:20px 24px;
+      cursor:pointer;
+      user-select:none;
+      font-weight:850;
+      font-size:16px;
+      color:var(--text);
+      transition:background .18s;
+    }
+    .faq-q:hover{background:#F7FAFF}
+    .faq-icon{
+      width:28px;height:28px;
+      border-radius:50%;
+      background:#EAF2FF;
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+      color:var(--blue);
+      font-size:18px;
+      transition:transform .28s ease, background .18s;
+    }
+    .faq-item.open .faq-icon{
+      transform:rotate(45deg);
+      background:var(--blue);
+      color:#fff;
+    }
+    .faq-a{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+    }
+    .faq-a-inner{
+      padding:0 24px 20px;
+      font-size:15.5px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    /* ── FLOAT CTA ── */
+    .float-cta{
+      position:fixed;
+      bottom:28px;
+      right:28px;
+      z-index:998;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#25D366,#128C7E);
+      color:#fff;
+      font-weight:900;
+      font-size:15px;
+      box-shadow:0 16px 48px rgba(18,140,126,.42);
+      cursor:pointer;
+      text-decoration:none;
+      opacity:0;
+      transform:translateY(30px) scale(.9);
+      pointer-events:none;
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .float-cta.visible{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:all;
+    }
+    .float-cta:hover{
+      transform:translateY(-3px) scale(1.03);
+      box-shadow:0 22px 56px rgba(18,140,126,.52);
+    }
+    .float-cta svg{
+      width:20px;height:20px;
+      flex-shrink:0;
+    }
+
+    /* ── CLOSING ── */
+    .closing{
+      padding:98px 0 112px;
+      text-align:center;
+      background:
+        radial-gradient(800px 430px at 50% 0%, rgba(0,200,255,.22), transparent 58%),
+        linear-gradient(135deg,#001744 0%,#005CFF 100%);
+      color:#fff;
+    }
+    .closing h2{
+      color:#fff;
+      max-width:940px;
+      margin:16px auto 0;
+    }
+    .closing p{
+      max-width:790px;
+      color:#E6F2FF;
+      margin:18px auto 0;
+      font-size:19px;
+    }
+    .signature{
+      margin-top:34px;
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.24);
+      color:#fff;
+      font-weight:850;
+    }
+    .signature .brand-mark{
+      width:38px;height:38px;border-radius:12px;box-shadow:none;
+    }
+
+    /* ── GSAP reveal init ── */
+    .reveal{opacity:0;transform:translateY(36px)}
+    .reveal-left{opacity:0;transform:translateX(-36px)}
+    .reveal-right{opacity:0;transform:translateX(36px)}
+    .reveal-scale{opacity:0;transform:scale(.94)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1020px){
+      .hero,
+      .section-head,
+      .grid-3,
+      .grid-2,
+      .before-after,
+      .offers,
+      .method-accordion,
+      .deliverables,
+      .timeline-row,
+      .investment{
+        grid-template-columns:1fr;
+      }
+      .offer-card.featured{transform:none}
+      .hero-shell{margin-top:16px}
+      .hero,.nav{padding-left:28px;padding-right:28px}
+      .hero-visual{
+        min-height:auto;
+        display:grid;
+        gap:16px;
+      }
+      .floating-window,.mini-badge{
+        position:relative;
+        inset:auto;
+        left:auto;
+        right:auto;
+        bottom:auto;
+        width:100%;
+        transform:none;
+      }
+      .fixed-nav nav{display:none}
+    }
+    @media(max-width:640px){
+      .hero-shell,.container{width:min(100% - 24px,1160px)}
+      .nav{flex-direction:column;align-items:flex-start}
+      .hero h1{font-size:44px}
+      .hero .lead{font-size:18px}
+      .section{padding:70px 0}
+      .site-cards{grid-template-columns:1fr}
+      .card,.offer-card,.step,.deliverable-card,.scope,.investment-card{padding:22px}
+      .float-cta span{display:none}
+      .float-cta{padding:14px}
+      .fixed-nav .fn-brand span{display:none}
+    }
+
+    @media print{
+      body{background:#fff}
+      .hero-shell,.card,.offer-card,.step,.deliverable-card,.timeline-cell,.investment-card,.scope,.warning-card{
+        box-shadow:none;
+      }
+      .btn,.fixed-nav,.float-cta{display:none}
+      .reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none}
+    }
   </style>
 </head>
-<body>
-  <header class="navbar" id="navbar"><div class="container nav-inner"><a class="logo" href="#top" aria-label="Ir para início">ALAVANCADOR<span>.</span></a><nav class="nav-links"><a href="#diagnostico">Diagnóstico</a><a href="#planos">Planos</a><a href="#metodologia">Metodologia</a><a href="#entregaveis">Entregáveis</a><a href="#investimento">Investimento</a><a href="#faq">FAQ</a><a class="btn btn-ghost" href="#investimento">Falar agora</a></nav><button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button></div></header>
-  <aside class="drawer" id="drawer" aria-hidden="true"><nav class="grid"><a href="#diagnostico">Diagnóstico</a><a href="#planos">Planos</a><a href="#metodologia">Metodologia</a><a href="#entregaveis">Entregáveis</a><a href="#investimento">Investimento</a><a href="#faq">FAQ</a></nav></aside>
-  <main id="top" class="hero-wrap"><section class="container hero section"><div><span class="eyebrow">Presença digital estratégica</span><h1>Sites e landing pages criados para gerar confiança, autoridade e oportunidades.</h1><p>Presença digital estratégica para transformar visitantes em contatos, reuniões e oportunidades reais de negócio.</p><div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem"><a href="#planos" class="btn btn-primary" aria-label="Ver ofertas">Ver ofertas</a><a href="#investimento" class="btn btn-ghost" aria-label="Ver investimento">Ver investimento</a></div><ul class="benefits"><li class="badge">Sites prontos</li><li class="badge">Mais oportunidades</li><li class="badge">Estratégia completa</li><li class="badge">Resultados reais</li></ul><p class="hero-keywords">Estratégia • Design • Tecnologia • Resultados</p></div><div class="mockup"><div class="badge">ALAVANCADOR. Soluções Digitais</div><div class="mockup-grid"><div class="mini"></div><div class="mini"></div><div class="mini"></div><div class="mini"></div></div></div></section>
 
-<section id="diagnostico" class="section"><div class="container"><div class="section-header"><h2>O problema raramente é não ter um site.</h2><p>O problema real é ter uma presença digital que não transmite confiança, não comunica valor e não conduz o visitante para uma ação.</p></div><div class="grid"><article class="card"><div class="number">01</div><h3>Credibilidade</h3><p>Sem estrutura premium, a percepção de confiança e autoridade cai.</p></article><article class="card"><div class="number">02</div><h3>Clareza comercial</h3><p>Sem narrativa estratégica, o visitante não entende seu diferencial.</p></article><article class="card"><div class="number">03</div><h3>Conversão</h3><p>Sem jornada e CTA correto, visitas não viram oportunidades.</p></article></div></div></section>
-<section id="planos" class="section"><div class="container"><div class="section-header"><h2>Planos de implantação</h2></div><div class="planos"><article class="card plan-card"><h3>Plano 01 — Landing Start</h3><p>Ideal para campanhas, validação de oferta e tráfego pago.</p><ul class="check"><li>01 página estratégica</li><li>Estrutura de conversão</li><li>CTA para WhatsApp ou formulário</li><li>Prova social, FAQ e chamada final</li></ul><div class="price">R$ 2.999</div><a class="btn btn-ghost" href="#investimento">Quero este plano</a></article><article class="card plan-card recommended"><span class="badge">Recomendado</span><h3>Plano 02 — Site Essencial</h3><p>Ideal para presença institucional profissional.</p><ul class="check"><li>Até 04 páginas</li><li>Home, Quem Somos, Serviços e Contato</li><li>Layout personalizado e responsivo</li><li>SEO on-page, publicação e suporte inicial</li></ul><div class="price">R$ 4.999</div><a class="btn btn-primary" href="#investimento">Quero este plano</a></article><article class="card plan-card"><h3>Plano 03 — Site Autoridade</h3><p>Ideal para posicionamento forte e estrutura robusta.</p><ul class="check"><li>Mais páginas e profundidade</li><li>Páginas individuais de serviços</li><li>Cases, blog e integrações</li><li>Estrutura para autoridade e crescimento</li></ul><div class="price">R$ 6.999</div><a class="btn btn-ghost" href="#investimento">Quero este plano</a></article></div></div></section>
-<section id="metodologia" class="section"><div class="container"><div class="section-header"><h2>Metodologia Alavancador</h2></div><div class="grid"> <article class="card"><div class="number">01</div><h3>Briefing estratégico</h3><p>Levantamento de objetivos, público e diferenciais.</p></article><article class="card"><div class="number">02</div><h3>Arquitetura e jornada</h3><p>Estruturação de seções e fluxo de conversão.</p></article><article class="card"><div class="number">03</div><h3>Design responsivo</h3><p>Visual premium alinhado à marca e performance.</p></article><article class="card"><div class="number">04</div><h3>Desenvolvimento</h3><p>Implementação técnica otimizada e estável.</p></article><article class="card"><div class="number">05</div><h3>Publicação</h3><p>Deploy com validações finais e ajustes essenciais.</p></article><article class="card"><div class="number">06</div><h3>Orientação e suporte</h3><p>Suporte inicial para operação segura do site.</p></article></div></div></section>
-<section id="entregaveis" class="section"><div class="container"><div class="section-header"><h2>Entregáveis-chave</h2></div><div class="grid"><article class="card"><h3>Landing Page Estratégica</h3><ul class="check"><li>Briefing estratégico</li><li>Wireframe e jornada de conversão</li><li>Layout responsivo</li><li>Hero, problema, solução, benefícios, prova social, FAQ e CTA</li><li>Integração com WhatsApp, formulário ou agendamento</li><li>SEO on-page básico</li><li>Publicação e suporte pós-entrega</li></ul></article><article class="card"><h3>Site Institucional Estratégico</h3><ul class="check"><li>Briefing e arquitetura do site</li><li>Layout responsivo personalizado</li><li>Home, Quem Somos, Serviços e Contato</li><li>Diferenciais, cases, prova social e CTA</li><li>SEO on-page básico</li><li>Orientação sobre hospedagem, domínio e e-mail</li><li>Treinamento/tutorial e suporte pós-publicação</li></ul></article></div></div></section>
-<section class="section"><div class="container"><div class="section-header"><h2>Processo de execução</h2></div><div class="processo"><article class="card step">Briefing</article><article class="card step">Estrutura</article><article class="card step">Layout</article><article class="card step">Desenvolvimento</article><article class="card step">Go-live</article></div></div></section>
-<section id="investimento" class="section"><div class="container"><article class="card"><span class="badge">Plano recomendado</span><h2 style="margin:.8rem 0">Site Institucional Estratégico / Site Essencial</h2><div class="price">R$ 4.999</div><p>Condição de pagamento: Pix ou cartão de crédito. Consulte opções de parcelamento.</p><p>Até 20 dias úteis após briefing aprovado e envio completo dos materiais.</p><p>Validade: 7 dias a partir da data de envio.</p></article></div></section>
-<section id="limites" class="section"><div class="container"><div class="section-header"><h2>Limites do escopo</h2></div><div class="grid"><article class="card"><h3>⚠️ Produção e marca</h3><p>Não inclui criação completa de identidade visual, produção profissional de fotos, vídeos ou redações técnicas/jurídicas especializadas.</p></article><article class="card"><h3>⚠️ Marketing contínuo</h3><p>Não inclui gestão de tráfego pago, gestão de redes sociais, produção de conteúdo mensal ou SEO avançado contínuo.</p></article><article class="card"><h3>⚠️ Ferramentas e integrações</h3><p>Não inclui domínio, hospedagem, licenças pagas, plugins premium, integrações avançadas com CRM/ERP ou manutenção contínua.</p></article></div></div></section>
-<section class="section"><div class="container"><article class="card"><h2>O produto principal não é ‘Web Designer’. É Site Estratégico para Conversão e Autoridade.</h2><p style="margin-top:1rem">Esse reposicionamento aumenta o valor percebido, melhora o argumento comercial e reduz a comparação direta por preço.</p></article></div></section>
-<section id="faq" class="section"><div class="container"><div class="section-header"><h2>FAQ</h2></div><div class="accordion"><article class="acc-item"><button class="acc-btn" aria-expanded="false">Qual é o prazo médio? <span>+</span></button><div class="acc-panel"><p>Até 20 dias úteis após briefing aprovado e envio completo dos materiais.</p></div></article><article class="acc-item"><button class="acc-btn" aria-expanded="false">Vocês publicam o site? <span>+</span></button><div class="acc-panel"><p>Sim. Fazemos publicação orientada e validações de funcionamento.</p></div></article><article class="acc-item"><button class="acc-btn" aria-expanded="false">Há suporte após entrega? <span>+</span></button><div class="acc-panel"><p>Sim, com suporte inicial para ajustes e orientação de uso.</p></div></article></div></div></section>
-</main>
-<footer class="section" style="padding-top:2rem"><div class="container" style="border-top:1px solid var(--line);padding-top:1.5rem;display:grid;gap:.8rem"><strong>Alavancador Soluções Digitais</strong><p style="color:var(--muted)">Especialistas em soluções digitais para PMEs.</p><div style="display:flex;gap:.8rem;flex-wrap:wrap;color:var(--muted)"><a href="#diagnostico">Diagnóstico</a><a href="#planos">Planos</a><a href="#investimento">Investimento</a><a href="#faq">FAQ</a></div></div></footer>
-<a class="btn btn-primary whats" href="https://wa.me/5500000000000" aria-label="Falar no WhatsApp">WhatsApp</a>
-<script>
-(function(){
-  const qs=(s,c=document)=>c.querySelector(s), qsa=(s,c=document)=>[...c.querySelectorAll(s)];
-  function setupNavbar(){const nav=qs('#navbar');if(!nav)return;window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));}
-  function setupMenu(){const t=qs('#menuToggle'),d=qs('#drawer');if(!t||!d)return;const links=qsa('a',d);const toggle=(open)=>{d.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open));d.setAttribute('aria-hidden',String(!open));};t.addEventListener('click',()=>toggle(!d.classList.contains('open')));links.forEach(l=>l.addEventListener('click',()=>toggle(false)));}
-  function setupAccordion(){qsa('.acc-item').forEach(item=>{const btn=qs('.acc-btn',item),panel=qs('.acc-panel',item);if(!btn||!panel)return;btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));panel.style.maxHeight=open?'0px':panel.scrollHeight+'px';});});}
-  function setupAnimations(){if(!window.gsap)return;const cards=qsa('.card');gsap.from(cards,{opacity:0,y:18,duration:.5,stagger:.05,scrollTrigger:{trigger:'main',start:'top 75%'}});}
-  document.addEventListener('DOMContentLoaded',()=>{setupNavbar();setupMenu();setupAccordion();setupAnimations();});
-})();
-</script>
+<body>
+  <!-- FIXED NAVBAR -->
+  <div class="fixed-nav" id="fixedNav">
+    <div class="fn-brand">
+      <div class="fn-mark">AL</div>
+      <span>Alavancador</span>
+    </div>
+    <nav>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#planos">Planos</a>
+      <a href="#processo">Processo</a>
+      <a href="#cases">Estrutura</a>
+      <a href="#investimento">Investimento</a>
+    </nav>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+tenho+interesse+na+proposta+da+Alavancador!" class="fn-cta">Falar agora</a>
+  </div>
+
+  <!-- FLOAT CTA -->
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+quero+meu+site!" class="float-cta" id="floatCta" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.856L.057 23.882l6.198-1.625A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.017-1.376l-.36-.214-3.683.966.981-3.595-.234-.369A9.794 9.794 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182c5.434 0 9.818 4.384 9.818 9.818 0 5.434-4.384 9.818-9.818 9.818z"/></svg>
+    <span>Quero meu site →</span>
+  </a>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero-shell">
+      <header class="nav">
+        <div class="brand">
+          <div class="brand-mark">AL</div>
+          <span>Alavancador</span>
+        </div>
+        <div class="nav-tag">Proposta comercial • Landing Pages e Sites</div>
+      </header>
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow reveal">Presença digital estratégica</div>
+          <h1 class="reveal">Sites e landing pages criados para gerar confiança, autoridade e oportunidades.</h1>
+          <p class="lead reveal">
+            Não criamos apenas páginas bonitas. Estruturamos uma presença digital clara, profissional e orientada à conversão para transformar visitantes em contatos, reuniões e oportunidades reais de negócio.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a href="#planos" class="btn btn-white js-btn">Ver ofertas</a>
+            <a href="#investimento" class="btn btn-ghost js-btn">Ver investimento</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-right">
+          <div class="floating-window">
+            <div class="browser-top">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="url"></div>
+            </div>
+
+            <div class="site-shot">
+              <div class="site-hero">
+                <small>Site estratégico</small>
+                <strong>Transforme sua presença digital em oportunidades.</strong>
+              </div>
+
+              <div class="site-cards">
+                <div class="site-card">
+                  <b>Clareza</b>
+                  <span>Oferta compreensível em poucos segundos.</span>
+                </div>
+                <div class="site-card">
+                  <b>Autoridade</b>
+                  <span>Diferenciais, prova social e posicionamento.</span>
+                </div>
+                <div class="site-card">
+                  <b>Conversão</b>
+                  <span>CTA para WhatsApp, formulário ou agenda.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-badge">
+            <strong class="count-num" data-target="20">0</strong>
+            <span>dias — prazo estimado para um site institucional estratégico após briefing aprovado e materiais enviados.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNÓSTICO -->
+    <section id="diagnostico" class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Diagnóstico</div>
+            <h2 class="reveal">O problema raramente é "não ter um site". É ter uma presença digital que não vende confiança.</h2>
+          </div>
+          <p class="reveal">
+            Um site institucional ou uma landing page precisa responder rapidamente: quem é a empresa, o que ela oferece, por que confiar e qual próximo passo o visitante deve tomar. Quando isso não fica claro, o cliente compara apenas preço — ou simplesmente sai sem chamar.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="icon">01</div>
+            <h3>Credibilidade</h3>
+            <p>Transmitir profissionalismo, segurança e consistência visual para que o visitante confie na empresa.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">02</div>
+            <h3>Clareza comercial</h3>
+            <p>Explicar a oferta, os serviços e os diferenciais sem ruído, excesso de informação ou mensagem genérica.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">03</div>
+            <h3>Conversão</h3>
+            <p>Conduzir o usuário para uma ação objetiva: WhatsApp, formulário, agendamento, orçamento ou compra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPOSICIONAMENTO -->
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Reposicionamento</div>
+            <h2 class="reveal">De orçamento de web design para proposta de crescimento comercial.</h2>
+          </div>
+          <p class="reveal">
+            A principal mudança é de percepção. O cliente não deve enxergar o projeto como "criação de uma página", mas como uma estrutura digital pensada para gerar autoridade, confiança e oportunidades.
+          </p>
+        </div>
+
+        <div class="before-after">
+          <div class="ba-card before reveal-left">
+            <span class="ba-label">Antes</span>
+            <h3>"Proposta Web Designer"</h3>
+            <p style="margin-top:12px;">
+              Comunicação centrada em criação visual, páginas e execução técnica. Isso facilita comparação por preço e reduz a percepção de valor estratégico.
+            </p>
+            <div class="quote">"Vou pagar por um site bonito."</div>
+          </div>
+
+          <div class="ba-card after reveal-right">
+            <span class="ba-label">Depois</span>
+            <h3>"Site Estratégico para Conversão e Autoridade"</h3>
+            <p style="margin-top:12px;">
+              Comunicação centrada em posicionamento, clareza da oferta, confiança e geração de oportunidades comerciais.
+            </p>
+            <div class="quote">"Vou investir em uma estrutura para minha marca vender melhor."</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section id="planos" class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Arquitetura de ofertas</div>
+            <h2 class="reveal">Três caminhos claros para diferentes níveis de maturidade.</h2>
+          </div>
+          <p class="reveal">
+            Separar Landing Page, Site Essencial e Site Autoridade reduz confusão, melhora a ancoragem de valor e ajuda o cliente a escolher pelo objetivo de negócio — não apenas pelo preço.
+          </p>
+        </div>
+
+        <!-- Toggle mensal / anual -->
+        <div class="plan-toggle-wrap reveal">
+          <span class="toggle-label active" id="labelMensal">Parcelado</span>
+          <button class="toggle-switch" id="planToggle" aria-label="Alternar entre parcelado e à vista" role="switch" aria-checked="false"></button>
+          <span class="toggle-label" id="labelAnual">À vista <span class="discount-badge">−15%</span></span>
+        </div>
+
+        <div class="offers">
+          <article class="offer-card reveal">
+            <div class="offer-top">
+              <small>Oferta 01</small>
+              <h3>Landing Start</h3>
+              <p>Ideal para campanhas, validação de oferta, tráfego pago, captação de leads ou venda de um serviço específico.</p>
+              <ul class="list">
+                <li>01 página estratégica.</li>
+                <li>Estrutura focada em conversão.</li>
+                <li>CTA para WhatsApp, formulário ou agendamento.</li>
+                <li>Prova social, benefícios, FAQ e chamada final.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong class="price-val" data-mensal="A consultar" data-anual="A consultar">A consultar</strong>
+              <em class="price-sub" data-mensal="" data-anual=""></em>
+            </div>
+          </article>
+
+          <article class="offer-card featured reveal">
+            <span class="recommended">Recomendado</span>
+            <div class="offer-top">
+              <small>Oferta 02</small>
+              <h3>Site Essencial</h3>
+              <p>Ideal para empresas que precisam de presença institucional profissional, clara e preparada para gerar oportunidades.</p>
+              <ul class="list">
+                <li>Até 04 páginas padrão.</li>
+                <li>Home, Quem Somos, Serviços e Contato.</li>
+                <li>Layout personalizado e responsivo.</li>
+                <li>SEO on-page básico, publicação e suporte inicial.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong class="price-val" data-mensal="12× R$ 265" data-anual="R$ 2.547">12× R$ 265</strong>
+              <em class="price-sub" data-mensal="ou R$ 2.997 à vista" data-anual="economia de R$ 450 vs parcelado">ou R$ 2.997 à vista</em>
+            </div>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="offer-top">
+              <small>Oferta 03</small>
+              <h3>Site Autoridade</h3>
+              <p>Ideal para empresas que querem posicionamento mais forte, mais profundidade comercial e estrutura mais robusta.</p>
+              <ul class="list">
+                <li>Mais páginas e maior profundidade.</li>
+                <li>Páginas individuais de serviços.</li>
+                <li>Cases, blog, conteúdos e integrações.</li>
+                <li>Estrutura ideal para autoridade e crescimento.</li>
+              </ul>
+            </div>
+
+            <div class="price">
+              <span>Investimento</span>
+              <strong class="price-val" data-mensal="Sob consulta" data-anual="Sob consulta">Sob consulta</strong>
+              <em class="price-sub" data-mensal="proposta personalizada" data-anual="proposta personalizada">proposta personalizada</em>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA → ACCORDION -->
+    <section id="processo" class="section blue">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Metodologia Alavancador</div>
+            <h2 class="reveal">Um processo enxuto, mas com visão estratégica do início ao go-live.</h2>
+          </div>
+          <p class="reveal">
+            O projeto é conduzido para evitar improviso: primeiro entendemos o negócio, depois estruturamos a jornada, criamos o layout, desenvolvemos, publicamos e orientamos o cliente para uso básico.
+          </p>
+        </div>
+
+        <div class="method-accordion" id="methodAccordion">
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 01</span>
+              <h3>Briefing estratégico</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Levantamento completo de público-alvo, objetivo do projeto, oferta principal, concorrentes, diferenciais da empresa, tom de comunicação e materiais disponíveis (fotos, textos, identidade visual). Essa etapa garante que o projeto seja construído sobre uma base estratégica sólida — não no achismo.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 02</span>
+              <h3>Arquitetura e jornada</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Planejamento da estrutura da página ou site para organizar a narrativa, seções, CTAs e pontos de conversão. Definimos quais seções existirão, em qual ordem e com qual objetivo, garantindo que a jornada do visitante conduza naturalmente à ação desejada.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 03</span>
+              <h3>Design responsivo</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Criação visual adaptada para desktop, tablet e mobile, priorizando leitura, confiança e ação. O layout é desenvolvido alinhado à identidade visual da marca e validado com o cliente antes de avançar para o desenvolvimento. Ajustes de direção estética acontecem aqui.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 04</span>
+              <h3>Desenvolvimento</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Construção do site em WordPress + Elementor ou tecnologia definida no projeto, conforme escopo aprovado. Inclui responsividade completa, ajustes técnicos, SEO básico on-page e integrações simples como WhatsApp, formulário e analytics.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 05</span>
+              <h3>Publicação</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Configurações básicas de domínio, publicação no servidor, SEO on-page e integrações simples, quando os acessos forem fornecidos pelo cliente. O site vai ao ar com todos os itens do escopo validados e funcionando.
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item reveal" data-acc>
+            <div class="acc-header">
+              <span class="acc-step-num">Etapa 06</span>
+              <h3>Orientação e suporte</h3>
+              <div class="acc-chevron">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Tutorial ou treinamento básico para que o cliente saiba realizar alterações simples de textos e imagens no painel do site. Suporte inicial pós-publicação para dúvidas e ajustes menores dentro do escopo contratado.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTREGÁVEIS -->
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Entregáveis-chave</div>
+            <h2 class="reveal">O que precisa ficar evidente para o cliente.</h2>
+          </div>
+          <p class="reveal">
+            Quanto mais tangível o escopo, menor a chance de o cliente enxergar o site como commodity. Abaixo está a base ideal para apresentar landing pages e sites institucionais com mais valor percebido.
+          </p>
+        </div>
+
+        <div class="deliverables">
+          <article class="deliverable-card reveal-left">
+            <h3>Landing Page Estratégica</h3>
+            <p style="margin-top:10px;">Para campanhas, lançamentos, captação de leads e validação de uma oferta específica.</p>
+
+            <ul class="list">
+              <li>Briefing estratégico para entender público, oferta e objetivo.</li>
+              <li>Wireframe e estruturação da jornada de conversão.</li>
+              <li>Layout personalizado e responsivo.</li>
+              <li>Seções: hero, problema, solução, benefícios, prova social, FAQ e CTA.</li>
+              <li>Integração com WhatsApp, formulário ou agendamento.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Publicação da página e suporte inicial pós-entrega.</li>
+            </ul>
+          </article>
+
+          <article class="deliverable-card reveal-right">
+            <h3>Site Institucional Estratégico</h3>
+            <p style="margin-top:10px;">Para empresas que precisam apresentar marca, serviços, diferenciais, autoridade e canais de contato.</p>
+
+            <ul class="list">
+              <li>Briefing estratégico e planejamento da arquitetura do site.</li>
+              <li>Layout personalizado e responsivo.</li>
+              <li>Estrutura padrão: Home, Quem Somos, Serviços e Contato.</li>
+              <li>Seções de autoridade, diferenciais, cases/prova social e CTAs.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Orientação sobre hospedagem, domínio e e-mail profissional.</li>
+              <li>Tutorial ou treinamento básico e suporte inicial pós-publicação.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSO DE EXECUÇÃO -->
+    <section id="cases" class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Processo de execução</div>
+            <h2 class="reveal">Uma sequência clara para evitar desalinhamento.</h2>
+          </div>
+          <p class="reveal">
+            A proposta deve mostrar o fluxo de trabalho para o cliente entender que existe método, etapas e responsabilidades compartilhadas.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">1. Briefing</div>
+            <div class="timeline-cell">Coleta de informações, objetivos, materiais, referências e acessos necessários.</div>
+            <div class="timeline-cell">Alinhamento</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">2. Estrutura</div>
+            <div class="timeline-cell">Definição da arquitetura, seções, páginas, CTAs e narrativa comercial.</div>
+            <div class="timeline-cell">Estratégia</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">3. Layout</div>
+            <div class="timeline-cell">Criação visual responsiva e validação da direção estética do projeto.</div>
+            <div class="timeline-cell">Design</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">4. Desenvolvimento</div>
+            <div class="timeline-cell">Construção, ajustes técnicos, responsividade, SEO básico e integrações simples.</div>
+            <div class="timeline-cell">Execução</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">5. Go-live</div>
+            <div class="timeline-cell">Publicação, orientação de uso e suporte inicial conforme escopo contratado.</div>
+            <div class="timeline-cell">Entrega</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTRUTURA IDEAL DA PROPOSTA -->
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Estrutura ideal da proposta</div>
+            <h2 class="reveal">Ordem recomendada para vender melhor o projeto.</h2>
+          </div>
+          <p class="reveal">
+            Antes de apresentar o preço, a proposta precisa construir valor com diagnóstico, estratégia, método e entregáveis.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">1. Capa premium</div>
+            <div class="timeline-cell">Apresentação personalizada, cliente, data, validade e posicionamento da oferta.</div>
+            <div class="timeline-cell">Primeira impressão</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">2. Diagnóstico</div>
+            <div class="timeline-cell">Contextualização do problema: presença digital, confiança, clareza e conversão.</div>
+            <div class="timeline-cell">Consciência</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">3. Solução</div>
+            <div class="timeline-cell">Explicação do que será construído e por que isso resolve o problema comercial.</div>
+            <div class="timeline-cell">Valor</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">4. Entregáveis</div>
+            <div class="timeline-cell">Escopo claro, páginas, seções, integrações simples, SEO básico e suporte.</div>
+            <div class="timeline-cell">Tangibilidade</div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="timeline-cell">5. Investimento</div>
+            <div class="timeline-cell">Preço, condições, prazo, validade da proposta e próximos passos.</div>
+            <div class="timeline-cell">Decisão</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIMENTO -->
+    <section class="section blue" id="investimento">
+      <div class="container">
+        <div class="investment">
+          <div class="scope reveal-left">
+            <div class="eyebrow">Oferta recomendada</div>
+            <h2>Site Institucional Estratégico</h2>
+            <p>
+              Projeto indicado para empresas que precisam de uma presença digital profissional, clara e preparada para gerar confiança e oportunidades comerciais.
+            </p>
+
+            <ul class="list">
+              <li>Planejamento, design, desenvolvimento e publicação do site.</li>
+              <li>Até 04 páginas padrão: Home, Quem Somos, Serviços e Contato.</li>
+              <li>Layout personalizado, responsivo e alinhado à identidade da marca.</li>
+              <li>Estrutura com diferenciais, prova social, serviços, CTAs e canais de contato.</li>
+              <li>Configuração básica de SEO on-page.</li>
+              <li>Orientação sobre domínio, hospedagem e e-mail profissional.</li>
+              <li>Treinamento/tutorial básico e suporte inicial após publicação.</li>
+            </ul>
+          </div>
+
+          <aside class="investment-card reveal-right">
+            <div class="label">Investimento</div>
+            <strong class="count-money" data-target="2997">R$ 0</strong>
+            <p>Condição: Pix ou 12x de R$ 265 no cartão.</p>
+
+            <div class="investment-box">
+              <p><b style="color:#103B9B;">Prazo estimado</b><br/>Até 20 dias úteis após briefing aprovado e envio completo dos materiais.</p>
+            </div>
+
+            <div class="investment-box">
+              <p><b style="color:#103B9B;">Validade da proposta</b><br/>7 dias a partir da data de envio.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIMITES DO ESCOPO -->
+    <section class="section light">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Limites do escopo</div>
+            <h2 class="reveal">O que não está incluso no projeto padrão.</h2>
+          </div>
+          <p class="reveal">
+            Esta seção protege a entrega e evita que o cliente interprete o projeto como uma solução ilimitada. O ideal é apresentar os limites com clareza e elegância.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="warning-card reveal">
+            <div class="icon">!</div>
+            <h3>Produção e marca</h3>
+            <p>Não inclui criação completa de identidade visual, produção profissional de fotos, vídeos ou redações técnicas/jurídicas especializadas.</p>
+          </article>
+
+          <article class="warning-card reveal">
+            <div class="icon">!</div>
+            <h3>Marketing contínuo</h3>
+            <p>Não inclui gestão de tráfego pago, gestão de redes sociais, produção de conteúdo mensal ou SEO avançado contínuo.</p>
+          </article>
+
+          <article class="warning-card reveal">
+            <div class="icon">!</div>
+            <h3>Ferramentas e integrações</h3>
+            <p>Não inclui domínio, hospedagem, licenças pagas, plugins premium, integrações avançadas com CRM/ERP ou manutenção contínua.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow reveal">Dúvidas frequentes</div>
+            <h2 class="reveal">Perguntas que todo cliente faz antes de fechar.</h2>
+          </div>
+          <p class="reveal">
+            Respondemos abaixo as dúvidas mais comuns para que você tenha clareza total antes de avançar com o projeto.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              Preciso fornecer os textos e imagens?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Sim, o ideal é que o cliente forneça os textos principais, fotos e materiais da empresa. Isso garante que o site reflita a identidade real do negócio. Podemos ajudar na organização e edição leve dos textos, mas a produção de conteúdo do zero ou o fotográfico profissional não estão inclusos no escopo padrão.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              Posso solicitar alterações depois da entrega?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Sim. Durante o projeto, prevemos rodadas de revisão para ajustes. Após a entrega final, oferecemos suporte inicial para pequenas correções dentro do escopo contratado. Alterações fora do escopo original ou novas funcionalidades são orçadas separadamente.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              Como funciona o pagamento?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Trabalhamos com pagamento à vista via Pix (com possibilidade de desconto) ou parcelado em até 12× no cartão de crédito. Normalmente solicitamos 50% no início do projeto e 50% na entrega. As condições específicas são combinadas na proposta fechada.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              Vocês emitem nota fiscal?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                Sim, a Alavancador Soluções Digitais emite nota fiscal para todos os serviços prestados. Trabalhamos de forma transparente e regularizada para garantir segurança jurídica para ambas as partes.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              E se eu precisar de mais páginas?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                O Site Essencial inclui até 4 páginas padrão. Se o projeto demandar mais páginas, seções individuais de serviços, blog ou outras funcionalidades, migramos para o escopo Site Autoridade ou adicionamos as páginas ao projeto com orçamento complementar.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" data-faq>
+            <div class="faq-q">
+              Qual o prazo real de entrega?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <div class="faq-a-inner">
+                O prazo estimado é de até 20 dias úteis após briefing aprovado e envio completo dos materiais pelo cliente. Esse prazo pode ser menor dependendo da complexidade e agilidade nas aprovações. O principal fator que atrasa projetos é a demora no envio de materiais e feedbacks — por isso o processo começa com um briefing estruturado.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="closing">
+      <div class="container">
+        <div class="eyebrow reveal" style="justify-content:center;color:#B7F0FF;">Direcionamento final</div>
+        <h2 class="reveal">O produto principal não é "Web Designer". É Site Estratégico para Conversão e Autoridade.</h2>
+        <p class="reveal">
+          Esse reposicionamento aumenta o valor percebido, melhora o argumento comercial e reduz a comparação direta por preço. A proposta passa a vender uma solução de crescimento comercial, não apenas criação visual.
+        </p>
+
+        <div class="signature reveal">
+          <div class="brand-mark">AL</div>
+          <span>Alavancador Soluções Digitais • Especialistas em soluções digitais para PMEs</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+  (function(){
+    // ── GSAP + ScrollTrigger ──
+    function initGSAP(){
+      if(typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      function revealBatch(selector, fromVars){
+        const els = document.querySelectorAll(selector);
+        if(!els.length) return;
+        gsap.fromTo(els, fromVars, {
+          opacity:1,
+          x:0,
+          y:0,
+          scale:1,
+          stagger:.12,
+          duration:.75,
+          ease:'power3.out',
+          scrollTrigger:{
+            trigger:els[0].closest('.container') || els[0],
+            start:'top 85%',
+            once:true
+          }
+        });
+      }
+
+      revealBatch('.reveal',       {opacity:0, y:36});
+      revealBatch('.reveal-left',  {opacity:0, x:-36});
+      revealBatch('.reveal-right', {opacity:0, x:36});
+      revealBatch('.reveal-scale', {opacity:0, scale:.94});
+
+      // Counter animation for .count-num
+      document.querySelectorAll('.count-num').forEach(function(el){
+        var target = parseInt(el.dataset.target, 10);
+        ScrollTrigger.create({
+          trigger:el,
+          start:'top 85%',
+          once:true,
+          onEnter:function(){
+            gsap.fromTo({val:0},{val:target},{
+              duration:1.4,
+              ease:'power2.out',
+              onUpdate:function(){
+                el.textContent = Math.round(this.targets()[0].val);
+              }
+            });
+          }
+        });
+      });
+
+      // Counter for investment price
+      document.querySelectorAll('.count-money').forEach(function(el){
+        var target = parseInt(el.dataset.target, 10);
+        ScrollTrigger.create({
+          trigger:el,
+          start:'top 85%',
+          once:true,
+          onEnter:function(){
+            gsap.fromTo({val:0},{val:target},{
+              duration:1.6,
+              ease:'power2.out',
+              onUpdate:function(){
+                var v = Math.round(this.targets()[0].val);
+                el.textContent = 'R$ ' + v.toLocaleString('pt-BR');
+              }
+            });
+          }
+        });
+      });
+
+      // Process connector line
+      var accordion = document.getElementById('methodAccordion');
+      if(accordion){
+        ScrollTrigger.create({
+          trigger:accordion,
+          start:'top 75%',
+          once:true,
+          onEnter:function(){
+            accordion.classList.add('line-drawn');
+          }
+        });
+      }
+    }
+
+    // Init GSAP after load (scripts are defer)
+    window.addEventListener('load', initGSAP);
+
+    // ── FIXED NAVBAR ──
+    var fixedNav = document.getElementById('fixedNav');
+    var shown = false;
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if(y > 80 && !shown){
+        fixedNav.classList.add('visible');
+        shown = true;
+      } else if(y <= 80 && shown){
+        fixedNav.classList.remove('visible','scrolled');
+        shown = false;
+      }
+      if(y > 80){
+        fixedNav.classList.toggle('scrolled', y > 120);
+      }
+    }, {passive:true});
+
+    // ── FLOAT CTA ──
+    var floatCta = document.getElementById('floatCta');
+    window.addEventListener('scroll', function(){
+      floatCta.classList.toggle('visible', window.scrollY > 300);
+    }, {passive:true});
+
+    // Bounce in animation via CSS class
+    floatCta.style.transition = 'opacity .4s cubic-bezier(.34,1.56,.64,1), transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease';
+
+    // ── PLAN TOGGLE ──
+    var toggle     = document.getElementById('planToggle');
+    var lblMensal  = document.getElementById('labelMensal');
+    var lblAnual   = document.getElementById('labelAnual');
+    var isAnual    = false;
+
+    toggle.addEventListener('click', function(){
+      isAnual = !isAnual;
+      toggle.classList.toggle('on', isAnual);
+      toggle.setAttribute('aria-checked', isAnual);
+      lblMensal.classList.toggle('active', !isAnual);
+      lblAnual.classList.toggle('active', isAnual);
+
+      document.querySelectorAll('.price-val').forEach(function(el){
+        el.classList.add('fading');
+        setTimeout(function(){
+          el.textContent = isAnual ? el.dataset.anual : el.dataset.mensal;
+          el.classList.remove('fading');
+        }, 200);
+      });
+
+      document.querySelectorAll('.price-sub').forEach(function(el){
+        el.textContent = isAnual ? el.dataset.anual : el.dataset.mensal;
+      });
+    });
+
+    // ── ACCORDION (método) ──
+    document.querySelectorAll('[data-acc]').forEach(function(item){
+      var header = item.querySelector('.acc-header');
+      var body   = item.querySelector('.acc-body');
+      header.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        // close all
+        document.querySelectorAll('[data-acc].open').forEach(function(o){
+          o.classList.remove('open');
+          o.querySelector('.acc-body').style.maxHeight = '0';
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ── FAQ ACCORDION ──
+    document.querySelectorAll('[data-faq]').forEach(function(item){
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('[data-faq].open').forEach(function(o){
+          o.classList.remove('open');
+          o.querySelector('.faq-a').style.maxHeight = '0';
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ── BUTTON LOADING (micro-interaction) ──
+    document.querySelectorAll('.js-btn').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        var href = btn.getAttribute('href');
+        if(href && href.startsWith('#')) return; // anchor, no loading needed
+        e.preventDefault();
+        if(btn.classList.contains('btn-loading')) return;
+        var txt = btn.innerHTML;
+        btn.classList.add('btn-loading');
+        btn.innerHTML = '<span class="btn-text">' + txt + '</span>';
+        setTimeout(function(){
+          btn.classList.remove('btn-loading');
+          btn.innerHTML = txt;
+          window.location.href = href;
+        }, 600);
+      });
+    });
+
+    // ── LAZY IMAGES (future-proof for any img added) ──
+    if('loading' in HTMLImageElement.prototype){
+      document.querySelectorAll('img').forEach(function(img){
+        img.loading = 'lazy';
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
